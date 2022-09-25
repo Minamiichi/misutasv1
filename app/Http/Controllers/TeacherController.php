@@ -2,35 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
-use App\Models\User;
 
-class LandingPageController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('pages.landingpage.index');
-    }
-    public function about(Request $request)
-    {
-        return view('pages.landingpage.about');
-    }
-
-    public function infoPpdb(Request $request){
-
-        $data = User::where('status', 'active');
-
-        return view('pages.landingpage.ppdb.index', compact('data'));
-    }
-
-    public function blog(Request $request){
-
-        return view('pages.landingpage.blog.index');
+        $teachers = Teacher::all();
+        return view('pages.dashboard.admin.teacher.index', compact('teachers'));
     }
 
     /**
@@ -38,13 +23,9 @@ class LandingPageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function details(Request $request){
-        return view('pages.blog.details');
-    }
-    public function siswa(Request $request)
+    public function create()
     {
-        return view ('pages.landingpage.siswa.index');
+        return view('pages.dashboard.admin.teacher.create');
     }
 
     /**
@@ -55,16 +36,20 @@ class LandingPageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Teacher::create($data);
+
+        return redirect()->route('dashboard.teacher.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Teacher $teacher)
     {
         //
     }
@@ -72,10 +57,10 @@ class LandingPageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Teacher $teacher)
     {
         //
     }
@@ -84,10 +69,10 @@ class LandingPageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Teacher $teacher)
     {
         //
     }
@@ -95,10 +80,10 @@ class LandingPageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher)
     {
         //
     }

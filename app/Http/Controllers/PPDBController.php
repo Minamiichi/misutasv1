@@ -3,34 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Room;
+use App\Models\Student;
 
-class LandingPageController extends Controller
+class PPDBController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('pages.landingpage.index');
-    }
-    public function about(Request $request)
-    {
-        return view('pages.landingpage.about');
-    }
+        $rooms = Room::all();
+        $students = Student::all();
 
-    public function infoPpdb(Request $request){
-
-        $data = User::where('status', 'active');
-
-        return view('pages.landingpage.ppdb.index', compact('data'));
-    }
-
-    public function blog(Request $request){
-
-        return view('pages.landingpage.blog.index');
+        return view('pages.landingpage.siswa.index', compact('rooms', 'students'));
     }
 
     /**
@@ -38,13 +26,11 @@ class LandingPageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function details(Request $request){
-        return view('pages.blog.details');
-    }
-    public function siswa(Request $request)
+    public function create()
     {
-        return view ('pages.landingpage.siswa.index');
+        $rooms = Room::all();
+        
+        return view('pages.landingpage.siswa.index', compact('rooms'));
     }
 
     /**
@@ -53,18 +39,22 @@ class LandingPageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Room $room)
     {
-        //
+        $data = $request->all();
+
+        Student::create($data);
+
+        return redirect()->route('landingpage.siswa.index', $room->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
         //
     }
@@ -72,10 +62,10 @@ class LandingPageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
         //
     }
@@ -84,10 +74,10 @@ class LandingPageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
         //
     }
@@ -95,11 +85,12 @@ class LandingPageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
         //
     }
 }
+

@@ -48,7 +48,7 @@
                     <span>Dashboard Admin</span></a>
             </li>
 
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -58,12 +58,12 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="sbmenu/kelembagaan/profil-lembaga.html">Profil Lembaga</a>
-                        <a class="collapse-item" href="{{ route('dashboard.user.index') }}">Data Pengguna</a>
-                        <a class="collapse-item" href="sbmenu/kelembagaan/data-guru.html">Data Guru</a>
+                        {{-- <a class="collapse-item" href="{{ route('dashboard.user.index') }}">Data Pengguna</a> --}}
+                        <a class="collapse-item" href="{{ route('dashboard.teacher.index') }}">Data Guru</a>
                         <a class="collapse-item" href="sbmenu/kelembagaan/data-jurusan.html">Data Jurusan</a>
                     </div>
                 </div>
-            </li> --}}
+            </li>
 
             {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAkademik"

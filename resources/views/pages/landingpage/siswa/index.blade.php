@@ -15,7 +15,7 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h4 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Syarat Dan Ketentuan
+                                            PAGE SISWA
                                     </h4>
                                 </div>
 
@@ -66,7 +66,7 @@
                 
                 <div class="col-lg-6">
                     <div class="thumb wow fadeInLeft" data-wow-delay="0.5s">
-                        <img src="/landingPage/assets/img/illustration/171.png" alt="Thumb">
+                        <img src="/landingPage/assets/img/illustration/17.png" alt="Thumb">
                     </div>
                 </div>
 
@@ -75,67 +75,4 @@
     </div>
 </div>
 <!-- End Faq -->
-
-@auth
-@if (Auth::user()->status == 'ACTIVE')
-<div id="contact" class="contact-us-area default-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 wow fadeInLeft contact-form">
-                <h2>Need help? <strong>Let's ask your questions</strong></h2>
-                <form action="{{ route('dashboard.student.store') }}" class="w-full" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <input class="form-control" value="{{ old('nisn') }}" name="nisn" placeholder="NISN" type="text">
-                                <span class="alert-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <input class="form-control" value="{{ old('name') }}" name="name" placeholder="NAMA" type="text">
-                                <span class="alert-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <input class="form-control" value="{{ old('birthdate') }}" name="birthdate" placeholder="Tanggal Lahir" type="date">
-                                <span class="alert-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <input class="form-control" value="{{ old('gender') }}" name="gender" placeholder="Jenis Kelamin" type="text">
-                                <span class="alert-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <input class="form-control" value="{{ old('religion') }}" name="religion" placeholder="Agama" type="text">
-                                <span class="alert-error"></span>
-                            </div>
-                        </div>
-                
-                        <div class="col-lg-12">
-                            <button type="submit" name="submit" id="submit">
-                                Simpan <i class="fa fa-paper-plane"></i>
-                            </button>
-                        </div>
-                        <!-- Alert Message -->
-                        <div class="col-lg-12 alert-notification">
-                            <div id="message" class="alert-msg"></div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>  
-@endif
-@endauth
-    
-
-
-   
 @endsection

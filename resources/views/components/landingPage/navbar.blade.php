@@ -52,7 +52,7 @@
                         <a href="{{ route('about') }}" class="">Tentang</a>
                     </li>
                     <li class="dropdown">
-                        <a href="{{ route('ppdb') }}" class="">PPDB</a>
+                        <a href="{{ route('infoPpdb') }}" class="">PPDB</a>
                     </li>
                     <li class="dropdown">
                         <a href="{{ route('blog') }}" class="">Blog</a>
@@ -61,9 +61,9 @@
                         <a href="#kontak">Contact</a>
                     </li>
                     @auth
-                        @if (Auth::user()->status == 'ACTIVE')
+                        @if (Auth::user()->roles == 'SISWA')
                             <li class="dropdown">
-                                <a href="#" class="">SISWA</a>
+                                <a href="{{ route('siswa') }}" class="">SISWA</a>
                             </li>  
                         @endif
                     @endauth

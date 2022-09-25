@@ -6,6 +6,7 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +21,20 @@ use App\Http\Controllers\LandingPageController;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('index');
 Route::get('/about', [LandingPageController::class, 'about'])->name('about');
-Route::get('/ppdb', [LandingPageController::class, 'ppdb'])->name('ppdb');
+Route::get('/infoPpdb', [LandingPageController::class, 'infoPpdb'])->name('infoPpdb');
+Route::get('/siswa', [LandingPageController::class, 'siswa'])->name('siswa');
 
 Route::get('/blog', [LandingPageController::class, 'blog'])->name('blog');
 Route::get('/blog/details', [LandingPageController::class, 'details'])->name('details');
 
 Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::resource('ppdb', PPDBController::class);
 
     Route::middleware(['admin'])->group(function(){
         Route::resource('student', StudentController::class);
         Route::resource('room', RoomController::class);
         Route::resource('alumni', AlumniController::class);
+        Route::resource('teacher', TeacherController::class);
     });
 });
