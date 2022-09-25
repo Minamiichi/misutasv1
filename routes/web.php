@@ -5,6 +5,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,12 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LandingPageController::class, 'index'])->name('index');
+Route::get('/about', [LandingPageController::class, 'about'])->name('about');
+Route::get('/ppdb', [LandingPageController::class, 'ppdb'])->name('ppdb');
+
+Route::get('/blog', [LandingPageController::class, 'blog'])->name('blog');
+Route::get('/blog/details', [LandingPageController::class, 'details'])->name('details');
 
 Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('index');

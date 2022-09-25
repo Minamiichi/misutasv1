@@ -23,6 +23,7 @@
                         <tr>
                             <th>NO</th>
                             <th>NISN</th>
+                            <th>NIS</th>
                             <th>Nama</th>
                             <th>Tempat Tanggal Lahir</th>
                             <th>Kelas</th> 
@@ -34,6 +35,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $student->nisn }}</td>
+                                <td>{{ $student->nis }}</td>
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->born_place }}, {{ $student->birthdate }}</td>
                                 <td>{{ $student->room->name }}</td>
