@@ -40,30 +40,32 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach ($teachers as $teacher)
+                        @foreach($teachers as $teacher)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $teacher->name }}</td>
                                 <td>{{ $teacher->nip }}</td>
                                 <td>{{ $teacher->study }}</td>
                                 <td><button class="btn btn-primary">
-                                    <a href="" class="text-white">
-                                        {{ __('Edit Guru') }}
-                                    </a>
-                                </button></td>
+                                        <a href="" class="text-white">
+                                            {{ __('Edit Guru') }}
+                                        </a>
+                                    </button></td>
                                 <td>
                                     <button class="btn btn-primary">
-                                        <a href="{{ route('dashboard.teacher.show', $teacher->id) }}" class="text-white">
+                                        <a href="{{ route('dashboard.teacher.show', $teacher->id) }}"
+                                            class="text-white">
                                             {{ __('Lihat Guru') }}
                                         </a>
                                     </button>
-                                </td>                            
+                                </td>
                             </tr>
-                            @endforeach
+                        @endforeach
                     </tbody>
                 </table>
                 <button class="btn btn-primary">
-                    <a href="{{ route('dashboard.teacher.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
+                    <a href="{{ route('dashboard.teacher.create') }}"
+                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
                         + Tambah Guru
                     </a>
                 </button>

@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Room;
-use App\Models\Student;
-
+use App\Models\Ppdb;
 class PPDBController extends Controller
 {
     /**
@@ -15,10 +13,8 @@ class PPDBController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
-        $students = Student::all();
-
-        return view('pages.landingpage.siswa.index', compact('rooms', 'students'));
+        $ppdb = Ppdb::all();
+        return view('pages.landingpage.ppdb.index', compact('ppdb'));
     }
 
     /**
@@ -28,9 +24,7 @@ class PPDBController extends Controller
      */
     public function create()
     {
-        $rooms = Room::all();
-        
-        return view('pages.landingpage.siswa.index', compact('rooms'));
+        return view('pages.landingpage.ppdb.create');
     }
 
     /**
@@ -39,33 +33,38 @@ class PPDBController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Room $room)
+    public function store(Request $request)
     {
         $data = $request->all();
 
-        Student::create($data);
+        Ppdb::create($data);
 
-        return redirect()->route('landingpage.siswa.index', $room->id);
+        return redirect()->route('dashboard.ppdb.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Ppdb  $PPDB
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        //
+        $ppdb = Ppdb::where('id', $id)->first();
+
+        return view('pages.landingpage.ppdb.show', [
+            'ppdb' => $ppdb,
+            
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Ppdb  $PPDB
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Ppdb $ppdb)
     {
         //
     }
@@ -74,10 +73,10 @@ class PPDBController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Ppdb  $PPDB
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, PPDB $ppdb)
     {
         //
     }
@@ -85,10 +84,10 @@ class PPDBController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Ppdb  $PPDB
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Ppdb $ppdb)
     {
         //
     }

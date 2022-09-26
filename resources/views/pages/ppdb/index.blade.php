@@ -74,11 +74,19 @@
         </div>
     </div>
 </div>
-<!-- End Faq -->  
+<!-- End Faq -->
+
+@auth
+@if (Auth::user()->status == 'ACTIVE')
 <button class="btn btn-primary">
-    <a href="{{ route('dashboard.ppdb.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
-        Upload Data
+    <a href="{{ route('dashboard.ppdb.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
+        Masuk
     </a>
 </button>
+@endif
+@endauth
+    
+
+
    
 @endsection

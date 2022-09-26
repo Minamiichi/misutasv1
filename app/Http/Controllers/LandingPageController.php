@@ -25,7 +25,7 @@ class LandingPageController extends Controller
 
         $data = User::where('status', 'active');
 
-        return view('pages.landingpage.ppdb.index', compact('data'));
+        return view('pages.ppdb.index', compact('data'));
     }
 
     public function blog(Request $request){
