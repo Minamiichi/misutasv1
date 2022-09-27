@@ -57,8 +57,9 @@
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
@@ -98,16 +99,15 @@
                 <div class="card-body">
                     <div class="py-12">
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            @if($errors->any())
+                            @if ($errors->any())
                                 <div class="mb-5" roles="alert">
                                     <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
                                         There's something wrong!
                                     </div>
-                                    <div
-                                        class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                                    <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
                                         <p>
                                             <ul>
-                                                @foreach($errors->all() as $error)
+                                                @foreach ($errors->all() as $error)
                                                     <li>{{ $error }}</li>
                                                 @endforeach
                                             </ul>
@@ -115,27 +115,67 @@
                                     </div>
                                 </div>
                             @endif
-                            <form action="{{ route('dashboard.room.store') }}" class="w-full"
-                                method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('dashboard.inmutation.store') }}" class="w-full" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
+                                    <div class="col-sm-12 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No Surat</label>
+                                        <input type="text" value="{{ old('reference') }}" name="reference" class="form-control form-control-user" placeholder="No Surat" id="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
-                                        <input type="text" value="{{ old('name') }}" name="name"
-                                            class="form-control form-control-user" placeholder="Nama Kelas" id="">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal Masuk</label>
+                                        <input type="date" value="{{ old('entry') }}" name="entry" class="form-control form-control-user" placeholder="Tanggal Masuk" id="">
                                     </div>
+                                </div>
+                                <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tingkat</label>
-                                        <input type="text" value="{{ old('degree') }}" name="degree"
-                                            class="form-control form-control-user" placeholder="Tingkat" id="">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
+                                        <input type="text" value="{{ old('nisn') }}" name="nisn" class="form-control form-control-user" placeholder="NISN" id="">
                                     </div>
-                                    <div class="col-lg-12">
-                                        <button type="submit" class="btn btn-primary">
-                                            Save Class
-                                        </button>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nama</label>
+                                        <input type="text" value="{{ old('name') }}" name="name" class="form-control form-control-user" placeholder="Nama" id="">
                                     </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal Lahir</label>
+                                        <input type="date" value="{{ old('birthdate') }}" name="birthdate" class="form-control form-control-user" placeholder="Tanggal Masuk" id="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Jenis Kelamin</label>
+                                        <input type="text" value="{{ old('gender') }}" name="gender" class="form-control form-control-user" placeholder="Jenis Kelamin" id="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Asal Sekolah</label>
+                                        <input type="text" value="{{ old('school') }}" name="school" class="form-control form-control-user" placeholder="Asal Sekolah" id="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Jenis Pendaftaran</label>
+                                        <input type="text" value="{{ old('category') }}" name="category" class="form-control form-control-user" placeholder="Jenis Pendaftaran" id="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Alamat</label>
+                                        <input type="text" value="{{ old('address') }}" name="address" class="form-control form-control-user" placeholder="Alamat" id="">
+                                    </div>
+                                </div>  
+                                <div class="col-lg-6">
+                                    <button type="submit" class="btn btn-primary">
+                                        Save Class
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>

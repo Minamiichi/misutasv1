@@ -5,9 +5,13 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InmutationController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\OutmutationController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\PPDBController;
+use App\Http\Controllers\PpdbController;
+use App\Http\Controllers\SavingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +41,10 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         Route::resource('room', RoomController::class);
         Route::resource('alumni', AlumniController::class);
         Route::resource('teacher', TeacherController::class);
-        Route::resource('ppdb', PPDBController::class);
+        Route::resource('ppdb', PpdbController::class);
+        Route::resource('inmutation', InmutationController::class);
+        Route::resource('outmutation', OutmutationController::class);
+        Route::resource('payment', PaymentController::class);
+        Route::resource('saving', SavingController::class);
     });
 });

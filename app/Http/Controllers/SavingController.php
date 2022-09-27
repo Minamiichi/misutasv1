@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Saving;
+use App\Models\Student;
 use Illuminate\Http\Request;
-use App\Models\Ppdb;
-class PpdbController extends Controller
+
+class SavingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +15,10 @@ class PpdbController extends Controller
      */
     public function index()
     {
-        $ppdb = Ppdb::all();
-        return view('pages.landingpage.ppdb.index', compact('ppdb'));
+        $students = Student::all();
+        $savings = Saving::all();
+
+        return view('pages.dashboard.admin.saving.index', compact('students', 'savings'));
     }
 
     /**
@@ -24,7 +28,9 @@ class PpdbController extends Controller
      */
     public function create()
     {
-        return view('pages.landingpage.ppdb.create');
+        $students = Student::all();
+
+        return view('pages.dashboard.admin.saving.create', compact('students'));
     }
 
     /**
@@ -33,38 +39,33 @@ class PpdbController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Student $student)
     {
         $data = $request->all();
 
-        Ppdb::create($data);
+        Saving::create($data);
 
-        return redirect()->route('dashboard.ppdb.index');
+        return redirect()->route('dashboard.saving.index', $student->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ppdb  $PPDB
+     * @param  \App\Models\Saving  $saving
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Saving $saving)
     {
-        $ppdb = Ppdb::where('id', $id)->first();
-
-        return view('pages.landingpage.ppdb.show', [
-            'ppdb' => $ppdb,
-            
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ppdb  $PPDB
+     * @param  \App\Models\Saving  $saving
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ppdb $ppdb)
+    public function edit(Saving $saving)
     {
         //
     }
@@ -73,10 +74,10 @@ class PpdbController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ppdb  $PPDB
+     * @param  \App\Models\Saving  $saving
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PPDB $ppdb)
+    public function update(Request $request, Saving $saving)
     {
         //
     }
@@ -84,12 +85,11 @@ class PpdbController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ppdb  $PPDB
+     * @param  \App\Models\Saving  $saving
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ppdb $ppdb)
+    public function destroy(Saving $saving)
     {
         //
     }
 }
-

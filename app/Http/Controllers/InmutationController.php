@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inmutation;
 use Illuminate\Http\Request;
-use App\Models\Ppdb;
-class PpdbController extends Controller
+
+class InmutationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,9 @@ class PpdbController extends Controller
      */
     public function index()
     {
-        $ppdb = Ppdb::all();
-        return view('pages.landingpage.ppdb.index', compact('ppdb'));
+        $inmutations = Inmutation::all();
+        
+        return view('pages.dashboard.admin.mutasiMasuk.index', compact('inmutations'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PpdbController extends Controller
      */
     public function create()
     {
-        return view('pages.landingpage.ppdb.create');
+        return view('pages.dashboard.admin.mutasiMasuk.create');
     }
 
     /**
@@ -37,34 +39,29 @@ class PpdbController extends Controller
     {
         $data = $request->all();
 
-        Ppdb::create($data);
+        Inmutation::create($data);
 
-        return redirect()->route('dashboard.ppdb.index');
+        return redirect()->route('dashboard.inmutation.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ppdb  $PPDB
+     * @param  \App\Models\Inmutation  $inmutation
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Inmutation $inmutation)
     {
-        $ppdb = Ppdb::where('id', $id)->first();
-
-        return view('pages.landingpage.ppdb.show', [
-            'ppdb' => $ppdb,
-            
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ppdb  $PPDB
+     * @param  \App\Models\Inmutation  $inmutation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ppdb $ppdb)
+    public function edit(Inmutation $inmutation)
     {
         //
     }
@@ -73,10 +70,10 @@ class PpdbController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ppdb  $PPDB
+     * @param  \App\Models\Inmutation  $inmutation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PPDB $ppdb)
+    public function update(Request $request, Inmutation $inmutation)
     {
         //
     }
@@ -84,12 +81,11 @@ class PpdbController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ppdb  $PPDB
+     * @param  \App\Models\Inmutation  $inmutation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ppdb $ppdb)
+    public function destroy(Inmutation $inmutation)
     {
         //
     }
 }
-

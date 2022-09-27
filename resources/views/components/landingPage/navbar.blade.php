@@ -66,6 +66,11 @@
                                 <a href="{{ route('siswa') }}" class="">SISWA</a>
                             </li>  
                         @endif
+                        @if (Auth::user()->roles == 'ADMIN')
+                            <li class="dropdown">
+                                <a href="{{ route('dashboard.index') }}" class="">DASHBOARD</a>
+                            </li>  
+                        @endif
                     @endauth
                 </ul>
             </div><!-- /.navbar-collapse -->

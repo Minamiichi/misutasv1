@@ -1,4 +1,4 @@
-@extends('layouts.landingpage')
+@extends('layouts.admin')
 
 @section('content')
    
@@ -43,7 +43,7 @@
                         
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-primary">
-                                Save Class
+                                {{ __('Submit') }}
                             </button>
                         </div>
                         <!-- Alert Message -->

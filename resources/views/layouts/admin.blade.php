@@ -65,7 +65,7 @@
                 </div>
             </li>
 
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAkademik"
                     aria-expanded="true" aria-controls="collapseAkademik">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -74,27 +74,28 @@
                 <div id="collapseAkademik" class="collapse" aria-labelledby="headingAkademik"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="sbmenu/akademik/mutasi-masuk.html">Mutasi Masuk</a>
-                        <a class="collapse-item" href="sbmenu/akademik/mutasi-keluar.html">Mutasi Keluar</a>
-                        <a class="collapse-item" href="sbmenu/akademik/kelulusan.html">Kelulusan</a>
+                        <a class="collapse-item" href="{{ route('dashboard.inmutation.index') }}">Mutasi Masuk</a>
+                        <a class="collapse-item" href="{{ route('dashboard.outmutation.index') }}">Mutasi Keluar</a>
+                        {{-- <a class="collapse-item" href="sbmenu/akademik/kelulusan.html">Kelulusan</a> --}}
                     </div>
                 </div>
-            </li> --}}
+            </li>
 
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdministrasi"
                     aria-expanded="true" aria-controls="collapseAdministrasi">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Administrasi</span>
+                    <span>Pembayaran</span>
                 </a>
                 <div id="collapseAdministrasi" class="collapse" aria-labelledby="headingAdministrasi" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="sbmenu/administrasi/buku-induk.html">Buku Induk</a>
-                        <a class="collapse-item " href="sbmenu/administrasi/kartu-pelajar.html">Kartu Pelajar</a>
-                        <a class="collapse-item " href="sbmenu/administrasi/cetak-data.html">Cetak Data</a>
+                        <a class="collapse-item " href="{{ route('dashboard.payment.index') }}">Pembayaran</a>
+                        <a class="collapse-item " href="{{ route('dashboard.saving.index') }}">Tabungan</a>
+                        {{-- <a class="collapse-item " href="sbmenu/administrasi/kartu-pelajar.html">Kartu Pelajar</a>
+                        <a class="collapse-item " href="sbmenu/administrasi/cetak-data.html">Cetak Data</a> --}}
                     </div>
                 </div>
-            </li> --}}
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSiswa"
@@ -106,13 +107,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item " href="{{ route('dashboard.student.index') }}">Semua Siswa</a>
                         <a class="collapse-item" href="{{ route('dashboard.room.index') }}">Data Kelas</a>
-                        {{-- <a class="collapse-item " href="sbmenu/dataSiswa/belum-masuk-kelas.html">Belum Masuk Kelas</a>
-                        <a class="collapse-item " href="sbmenu/dataSiswa/1-abu-bakar.html">1-Abu Bakar</a>
-                        <a class="collapse-item " href="sbmenu/dataSiswa/2-kh-zaenal-mustofa.html">2-KH.Zaenal Mustofa</a> 
-                        <a class="collapse-item " href="sbmenu/dataSiswa/3-kh-ahmad-dahlah.html">3-KH.Ahmad Dahlan</a>
-                        <a class="collapse-item " href="sbmenu/dataSiswa/4-usman-bin-affan.html">4-Usman Bin Affan</a>
-                        <a class="collapse-item " href="sbmenu/dataSiswa/5-dewi-sartika.html">5-Dewi Sartika</a>
-                        <a class="collapse-item " href="sbmenu/dataSiswa/6-ra-kartini.html">6-RA Kartini</a> --}}
                     </div>
                 </div>
             </li>
@@ -126,7 +120,6 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('dashboard.alumni.index') }}">Home</a>
-                        {{-- <a class="collapse-item" href="sbmenu/dataAlumni/data-table.html">Data Table</a> --}}
                     </div>
                 </div>
             </li>
