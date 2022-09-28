@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inmutation;
+use App\Models\Outmutation;
 use Illuminate\Http\Request;
 
 class InmutationController extends Controller
@@ -15,8 +16,9 @@ class InmutationController extends Controller
     public function index()
     {
         $inmutations = Inmutation::all();
-        
-        return view('pages.dashboard.admin.mutasiMasuk.index', compact('inmutations'));
+        $inmutation = Inmutation::count();
+        $outmutation = Outmutation::count();
+        return view('pages.dashboard.admin.mutasiMasuk.index', compact('inmutations','inmutation','outmutation'));
     }
 
     /**

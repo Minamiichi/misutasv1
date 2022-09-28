@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Alumni;
+use App\Models\Room;
+use App\Models\Student;
+use App\Models\Teacher;
+
 
 class LandingPageController extends Controller
 {
@@ -14,7 +19,12 @@ class LandingPageController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.landingpage.index');
+        $teachers = Teacher::count();
+        $students = Student::count();
+        $rooms = Room::count();
+        $alumnus = Alumni::count();
+        return view('pages.landingpage.index', compact('teachers','students','rooms','alumnus'));
+    
     }
     public function about(Request $request)
     {

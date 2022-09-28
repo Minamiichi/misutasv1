@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Saving;
 use App\Models\Student;
+use App\Models\Room;
+use App\Models\Alumni;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class SavingController extends Controller
@@ -17,8 +20,12 @@ class SavingController extends Controller
     {
         $students = Student::all();
         $savings = Saving::all();
+        $alumni = Alumni::count();
+        $student = Student::count();
+        $room = Room::count();
+        $teachers = Teacher::count();
 
-        return view('pages.dashboard.admin.saving.index', compact('students', 'savings'));
+        return view('pages.dashboard.admin.saving.index', compact('students', 'savings','alumni', 'student', 'room' , 'teachers'));
     }
 
     /**

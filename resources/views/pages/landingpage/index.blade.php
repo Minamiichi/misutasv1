@@ -17,11 +17,11 @@
                 </div>
 
                 <div class="col-lg-6 info">
-                    <h2 class="wow fadeInDown" data-wow-duration="1s">Madrasah Ibtidaiyah<strong> Sukasirna</strong> in your Website</h2>
+                    <h2 class="wow fadeInDown" data-wow-duration="1s">Madrasah Ibtidaiyah<strong> Sukasirna</strong> </h2>
                     <p class="wow fadeInLeft" data-wow-duration="1.5s">
-                        Contented continued any happiness instantly objection yet her allowance. Use correct day new brought tedious.
+                        Jl. Perintis Kemerdekaan Belakang No 55, Mangkubumi Kota Tasikmalaya
                     </p>
-                    <a class="btn circle btn-md btn-gradient wow fadeInUp" data-wow-duration="1.8s" href="#">Get Started</a>
+                    
                 </div>
                 
             </div>
@@ -29,7 +29,44 @@
     </div>
 </div>
 <!-- End Banner -->
+<!-- Start Fun Factor Area
+    ============================================= -->
+    <div class="fun-factor-area default-padding-top">
+        <div class="container">
+            <div class="client-items text-center">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 item">
+                        <div class="fun-fact">
+                            <div class="timer" data-to="{{ $teachers }}" data-speed="5000">{{ $teachers }}</div>
+                            <span class="medium">Guru</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 item">
+                        <div class="fun-fact">
+                            <div class="timer" data-to="{{ $students }}" data-speed="5000">{{ $students }}</div>
+                            <span class="medium">Murid</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 item">
+                        <div class="fun-fact">
+                            <div class="timer" data-to="{{ $rooms }}" data-speed="5000">{{ $rooms }}</div>
+                            <span class="medium">Kelas</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 item">
+                        <div class="fun-fact">
+                            <div class="timer" data-to="{{ $alumnus }}" data-speed="5000">{{ $alumnus }}</div>
+                            <span class="medium">Alumni</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Fun Factor Area -->
 
+<!-- Start Testimonials
+============================================= -->
 <!-- Start Process Area
 ============================================= -->
 <div class="process-area default-padding-top" id="tentang">
@@ -50,7 +87,7 @@
                             </div>
                             <h4><strong>01.</strong> Visi</h4>
                             <p>
-                                Welcome fat who window extent either formal. Removing welcomed civility or hastened is. Justice elderly but perhaps expense.
+                                Terwujudnya MI Unggulan Yang Mampu Mencetak Siswa Yang Berprestasi dan Berakhlakul Karimah
                             </p>
                         </div>
                         <div class="item">
@@ -59,9 +96,13 @@
                             </div>
                             <h4><strong>02.</strong> Misi</h4>
                             <p>
-                                Welcome fat who window extent either formal. Removing welcomed civility or hastened is. Justice elderly but perhaps expense.
+                                <li>Membudayakan 5 (S) Yaitu Senyum, Salam, Santun, Sapa dan Sayang.</li>
+                                <li>Mewujudkan Lulusan yang Giat Beribadah dan Berakhlak mulia sesuai ajaran Al-Qur’an dan Hadist.</li>
+                                <li>Menjadikan disiplin kerja sebagai motor penggerak keberhasilan mutu pendidikan.</li>
+                                <li>Mewujudkan Manajemen Pendidikan dan Kurikulum Madrasah yang lengkap, tepat dan berwawasan kedepan.</li>
                             </p>
                         </div>
+                        <a class="btn circle btn-theme border btn-sm" href="{{ route('about') }}">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
                 
@@ -71,131 +112,6 @@
 </div>
 <!-- End Process Area -->
 
-<!-- Start Fun Factor Area
-    ============================================= -->
-    <div class="fun-factor-area default-padding-top">
-        <div class="container">
-            <div class="client-items text-center">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 item">
-                        <div class="fun-fact">
-                            <div class="timer" data-to="687" data-speed="5000">687</div>
-                            <span class="medium">Guru</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 item">
-                        <div class="fun-fact">
-                            <div class="timer" data-to="2348" data-speed="5000">2348</div>
-                            <span class="medium">Staff</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 item">
-                        <div class="fun-fact">
-                            <div class="timer" data-to="450" data-speed="5000">450</div>
-                            <span class="medium">Murid</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 item">
-                        <div class="fun-fact">
-                            <div class="timer" data-to="1200" data-speed="5000">1200</div>
-                            <span class="medium">Kelas</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Fun Factor Area -->
-
-<!-- Start Case Studies 
-============================================= -->
-<div class="case-studies-area circle-shape-right default-padding bottom-less">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="site-heading text-center">
-                    <h5>Pencapaian Sekolah</h5>
-                    <h2>Take a look some of our recent <br> case studies</h2>
-                    <div class="heading-divider"></div>
-                </div>
-            </div>
-        </div>
-        <div class="case-items">
-            <div class="row">
-                <!-- Single Item -->
-                <div class="single-item col-lg-4 col-md-6">
-                    <div class="item  wow fadeInUp" data-wow-delay="400ms">
-                        <div class="thumb">
-                            <img src="/landingPage/assets/img/800x600.png" alt="Thumb">
-                            <div class="overlay">
-                                <a href="#"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="cats">
-                                <p>
-                                    Sales, Web
-                                </p>
-                            </div>
-                            <h5>
-                                <a href="#">Community Engagement</a>
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="single-item col-lg-4 col-md-6">
-                    <div class="item  wow fadeInUp" data-wow-delay="500ms">
-                        <div class="thumb">
-                            <img src="/landingPage/assets/img/800x600.png" alt="Thumb">
-                            <div class="overlay">
-                                <a href="#"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="cats">
-                                <p>
-                                    Marketing
-                                </p>
-                            </div>
-                            <h5>
-                                <a href="#">Income growth</a>
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="single-item col-lg-4 col-md-6">
-                    <div class="item  wow fadeInUp" data-wow-delay="600ms">
-                        <div class="thumb">
-                            <img src="/landingPage/assets/img/800x600.png" alt="Thumb">
-                            <div class="overlay">
-                                <a href="#"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="cats">
-                                <p>
-                                    SEO, Optimize
-                                </p>
-                            </div>
-                            <h5>
-                                <a href="#">Traffic Management</a>
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Case Studies -->
-
-<!-- Start Testimonials
-============================================= -->
 <div class="testimonials-area default-padding">
     <div class="container">
         <div class="testimonial-items">

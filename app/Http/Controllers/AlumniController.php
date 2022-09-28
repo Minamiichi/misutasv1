@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumni;
+use App\Models\Room;
 use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class AlumniController extends Controller
@@ -18,8 +20,12 @@ class AlumniController extends Controller
         
         $alumnus = Alumni::all();
         $students = Student::all();
+        $alumni = Alumni::count();
+        $student = Student::count();
+        $rooms = Room::count();
+        $teachers = Teacher::count();
 
-        return view('pages.dashboard.admin.alumni.index', compact('alumnus', 'students'));
+        return view('pages.dashboard.admin.alumni.index', compact('alumnus', 'students', 'alumni', 'student', 'rooms' , 'teachers'));
     }
 
     /**
