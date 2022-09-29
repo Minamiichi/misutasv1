@@ -72,9 +72,16 @@ class PaymentController extends Controller
      * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Payment $payment)
+    public function edit($id)
     {
-        //
+        $payment = Payment::findOrFail($id);
+        $students = Student::all();
+        // dd($students);
+
+        return view('pages.dashboard.admin.payment.edit', [
+            'payment' => $payment,
+            'students' => $students
+        ]);
     }
 
     /**
@@ -84,9 +91,12 @@ class PaymentController extends Controller
      * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = Payment::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.payment.index');
     }
 
     /**
@@ -97,6 +107,8 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
-        //
+        $payment->delete();
+        
+        return redirect()->route('dashboard.payment.index');
     }
 }

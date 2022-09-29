@@ -119,10 +119,18 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $alumni->no_ijazah }}</td>
-                                <td>{{ $alumni->student->nisn }}</td>
-                                <td>{{ $alumni->student->name }}</td>
+                                <td>{{ $alumni->nisn }}</td>
+                                <td>{{ $alumni->name }}</td>
                                 <td>{{ $alumni->graduate }}</td>
-                                <td>Edit</td>                            
+                                <td><a href="{{ route('dashboard.alumni.edit', $alumni->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
+                                    + Create Class
+                                </a>
+                                <form class="inline" action= {{ route('dashboard.alumni.destroy', $alumni->id)  }} method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="bg-red-500 text-black rounded-md px-2 py-1 m-2">Delete</button>
+                                </form>
+                                </td>                            
                             </tr>
                             @endforeach
                     </tbody>

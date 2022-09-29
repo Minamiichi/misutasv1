@@ -67,9 +67,13 @@ class OutmutationController extends Controller
      * @param  \App\Models\Outmutation  $outmutation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Outmutation $outmutation)
+    public function edit($id)
     {
-        //
+        $outmutation = Outmutation::findOrFail($id);
+
+        return view('pages.dashboard.admin.mutasiKeluar.edit', [
+            'outmutation' => $outmutation
+        ]);
     }
 
     /**
@@ -79,9 +83,12 @@ class OutmutationController extends Controller
      * @param  \App\Models\Outmutation  $outmutation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Outmutation $outmutation)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = Outmutation::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.outmutation.index');
     }
 
     /**
@@ -92,6 +99,8 @@ class OutmutationController extends Controller
      */
     public function destroy(Outmutation $outmutation)
     {
-        //
+        $outmutation->delete();
+        
+        return redirect()->route('dashboard.outmutation.index');
     }
 }

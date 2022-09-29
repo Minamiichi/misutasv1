@@ -5,7 +5,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Tambah Kelas</h1>
     </div>
-
+    
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
@@ -32,40 +32,22 @@
                                     </div>
                                 </div>
                             @endif
-                            <form action="{{ route('dashboard.alumni.store') }}" class="w-full"
+                            <form action="{{ route('dashboard.room.update', $room->id) }}" class="w-full"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
                                         <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No
-                                            Ijazah</label>
-                                        <input type="text" value="{{ old('no_ijazah') }}"
-                                            name="no_ijazah" class="form-control form-control-user"
-                                            placeholder="No Ijazah" id="">
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
+                                        <input type="text" value="{{ old('name') ?? $room->name }}" name="name"
+                                            class="form-control form-control-user" placeholder="Nama Kelas" id="">
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal
-                                            Lulus</label>
-                                        <input type="date" value="{{ old('graduate') }}"
-                                            name="graduate" class="form-control form-control-user"
-                                            placeholder="Tanggal Lulus" id="">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
-                                            <input type="text" value="{{ old('nisn') }}"
-                                            name="nisn" class="form-control form-control-user"
-                                            placeholder="NISN" id="">
-                                    </div><div class="col-sm-6 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nama</label>
-                                            <input type="text" value="{{ old('name') }}"
-                                            name="name" class="form-control form-control-user"
-                                            placeholder="Nama" id="">
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tingkat</label>
+                                        <input type="text" value="{{ old('degree') ?? $room->degree }}" name="degree"
+                                            class="form-control form-control-user" placeholder="Tingkat" id="">
                                     </div>
                                     <div class="col-lg-12">
                                         <button type="submit" class="btn btn-primary">

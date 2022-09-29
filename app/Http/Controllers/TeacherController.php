@@ -67,9 +67,14 @@ class TeacherController extends Controller
      * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
+    public function edit($id)
     {
-        //
+        $teacher = Teacher::findOrFail($id);
+        // dd($students);
+
+        return view('pages.dashboard.admin.teacher.edit', [
+            'teacher' => $teacher
+        ]);
     }
 
     /**
@@ -79,9 +84,12 @@ class TeacherController extends Controller
      * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = Teacher::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.teacher.index');
     }
 
     /**
@@ -92,6 +100,8 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        //
+        $teacher->delete();
+        
+        return redirect()->route('dashboard.teacher.index');
     }
 }

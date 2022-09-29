@@ -32,20 +32,15 @@
                                     </div>
                                 </div>
                             @endif
-                            <form action="{{ route('dashboard.payment.store') }}" class="w-full"
+                            <form action="{{ route('dashboard.saving.update', $saving->id) }}" class="w-full"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group row">
-                                    <div class="col-sm-12 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No Pembayaran</label>
-                                        <input type="text" value="{{ old('no_pembayaran') }}" name="no_pembayaran"
-                                            class="form-control form-control-user" placeholder="No Pembayaran" id="">
-                                    </div>
                                     <div class="col-sm-12 mb-3">
                                         <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
                                         <select name="student_id" id="nisn" class="form-control form-control-user">
-                                            <option value="">Select NISN</option>
+                                            <option value="{{ old(' $saving->student->id') ?? $saving->student->id }}"> {{ $saving->student->nisn }}</option>
                                             <option value="">---------------</option>
                                             @foreach ($students as $student)
                                             <option value="{{ $student->id }}">{{ $student->nisn }}</option>
@@ -55,20 +50,25 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-12 mb-3">
+                                    <div class="col-sm-6 mb-3">
                                         <label for=""
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal Pembayaran</label>
-                                        <input type="date" value="{{ old('date') }}" name="date"
+                                        <input type="date" value="{{ old('date') ?? $saving->date }}" name="date"
                                             class="form-control form-control-user" placeholder="Tanggal Pembayaran Pembayaran" id="">
                                     </div>
-                                    <div class="col-sm-12 mb-3">
+                                    <div class="col-sm-6 mb-3">
                                         <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
-                                        <select name="category" id="nisn" class="form-control form-control-user">
-                                            <option value="">Jenis Pembayaran</option>
+                                        <select name="day" id="day" class="form-control form-control-user">
+                                            <option value="{{ old(' $saving->day') ?? $saving->day }}">{{ $saving->day }}</option>
                                             <option value="">---------------</option>
                                             
-                                            <option value="KAS">KAS</option>
-                                            <option value="SPP">SPP</option>
+                                            <option value="Senin">Senin</option>
+                                            <option value="Selasa">Selasa</option>
+                                            <option value="Rabu">Rabu</option>
+                                            <option value="Kamis">Kamis</option>
+                                            <option value="Jum'at">Jum'at</option>
+                                            <option value="Sabtu">Sabtu</option>
+                                            <option value="Minggu">Minggu</option>
                                     
                                         </select>
                                     </div>
@@ -77,7 +77,7 @@
                                     <div class="col-sm-12 mb-3">
                                         <label for=""
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Jumlah Pembayaran</label>
-                                        <input type="text" value="{{ old('sum') }}" name="sum"
+                                        <input type="text" value="{{ old('sum') ?? $saving->sum  }}" name="sum"
                                             class="form-control form-control-user" placeholder="Jumlah Pembayaran" id="">
                                     </div>
                                 </div>

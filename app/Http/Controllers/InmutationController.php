@@ -63,9 +63,13 @@ class InmutationController extends Controller
      * @param  \App\Models\Inmutation  $inmutation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inmutation $inmutation)
+    public function edit($id)
     {
-        //
+        $inmutation = Inmutation::findOrFail($id);
+
+        return view('pages.dashboard.admin.mutasiMasuk.edit', [
+            'inmutation' => $inmutation
+        ]);
     }
 
     /**
@@ -75,9 +79,12 @@ class InmutationController extends Controller
      * @param  \App\Models\Inmutation  $inmutation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inmutation $inmutation)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = Inmutation::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.inmutation.index');
     }
 
     /**
@@ -88,6 +95,8 @@ class InmutationController extends Controller
      */
     public function destroy(Inmutation $inmutation)
     {
-        //
+        $inmutation->delete();
+        
+        return redirect()->route('dashboard.inmutation.index');
     }
 }

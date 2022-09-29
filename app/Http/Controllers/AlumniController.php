@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alumni;
 use App\Models\Room;
+use App\Models\Alumni;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AlumniController extends Controller
 {
@@ -35,16 +36,8 @@ class AlumniController extends Controller
      */
     public function create()
     {
-        
-        $students = Student::all();
 
-        return view('pages.dashboard.admin.alumni.create', compact('students'));
-    }
-
-    public function getDetails($id = 0)
-    {
-        $data = Student::where('id', $id)->first();
-        return response()->json($data);
+        return view('pages.dashboard.admin.alumni.create');
     }
 
     /**
@@ -53,13 +46,13 @@ class AlumniController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Student $student)
+    public function store(Request $request)
     {
         $data = $request->all();
 
         Alumni::create($data);
 
-        return redirect()->route('dashboard.alumni.index', $student->id);
+        return redirect()->route('dashboard.alumni.index');
     }
 
     /**
@@ -79,9 +72,14 @@ class AlumniController extends Controller
      * @param  \App\Models\Alumni  $alumni
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumni $alumni)
+    public function edit(Alumni $alumni, $id)
     {
-        //
+        $alumni = Alumni::findOrFail($id);
+        // dd($students);
+
+        return view('pages.dashboard.admin.alumni.edit', [
+            'alumni' => $alumni
+        ]);
     }
 
     /**
@@ -91,9 +89,12 @@ class AlumniController extends Controller
      * @param  \App\Models\Alumni  $alumni
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumni $alumni)
+    public function update(Request $request, Alumni $alumni, $id)
     {
-        //
+
+        $data = Alumni::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.alumni.index');
     }
 
     /**
@@ -102,8 +103,13 @@ class AlumniController extends Controller
      * @param  \App\Models\Alumni  $alumni
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumni $alumni)
+    public function destroy(Alumni $alumni, $id)
     {
-        //
+        $alumni = Alumni::find($id);
+        $alumni->delete();
+        
+        return redirect()->route('dashboard.alumni.index');
     }
+
+    
 }

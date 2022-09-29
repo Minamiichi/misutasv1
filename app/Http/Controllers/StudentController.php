@@ -71,11 +71,17 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
-        //
-    }
+        $student = Student::findOrFail($id);
+        $rooms = Room::all();
+        // dd($students);
 
+        return view('pages.dashboard.admin.student.edit', [
+            'student' => $student,
+            'rooms' => $rooms
+        ]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -83,9 +89,12 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = Student::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.student.index');
     }
 
     /**
@@ -96,6 +105,8 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        
+        return redirect()->route('dashboard.student.index');
     }
 }

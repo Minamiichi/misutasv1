@@ -3,14 +3,14 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah Kelas</h1>
+        <h1 class="h3 mb-0 text-gray-800">Edit Alumni</h1>
     </div>
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah Kelas</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Edit Alumni</h6>
                 </div>
                 <div class="card-body">
                     <div class="py-12">
@@ -32,40 +32,43 @@
                                     </div>
                                 </div>
                             @endif
-                            <form action="{{ route('dashboard.alumni.store') }}" class="w-full"
-                                method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('dashboard.outmutation.update', $outmutation->id) }}" class="w-full" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No
                                             Ijazah</label>
-                                        <input type="text" value="{{ old('no_ijazah') }}"
-                                            name="no_ijazah" class="form-control form-control-user"
+                                        <input type="text" value="{{ old('reference') ?? $outmutation->reference }}"
+                                            name="reference" class="form-control form-control-user"
                                             placeholder="No Ijazah" id="">
                                     </div>
                                     <div class="col-sm-6 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal
                                             Lulus</label>
-                                        <input type="date" value="{{ old('graduate') }}"
-                                            name="graduate" class="form-control form-control-user"
+                                        <input type="text" value="{{ old('school') ?? $outmutation->school }}" name="school" class="form-control form-control-user"
                                             placeholder="Tanggal Lulus" id="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
-                                            <input type="text" value="{{ old('nisn') }}"
-                                            name="nisn" class="form-control form-control-user"
-                                            placeholder="NISN" id="">
-                                    </div><div class="col-sm-6 mb-3">
-                                        <label for=""
-                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nama</label>
-                                            <input type="text" value="{{ old('name') }}"
-                                            name="name" class="form-control form-control-user"
-                                            placeholder="Nama" id="">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal
+                                            Lulus</label>
+                                        <input type="text" value="{{ old('reason') ?? $outmutation->reason }}" name="reason" class="form-control form-control-user"
+                                            placeholder="Tanggal Lulus" id="">
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal
+                                            Lulus</label>
+                                        <input type="date" value="{{ old('out') ?? $outmutation->out }}" name="out" class="form-control form-control-user"
+                                            placeholder="Tanggal Lulus" id="">
+                                    </div>
+                                        
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3">
+                                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
+                                        <input type="hidden" name="student_id" value="{{ old(' $outmutation->student->id') ?? $outmutation->student->id }}" readonly>
                                     </div>
                                     <div class="col-lg-12">
                                         <button type="submit" class="btn btn-primary">

@@ -129,11 +129,14 @@
                                 <td>{{ $payment->no_pembayaran }}</td>
                                 <td>{{ $payment->student->name }}</td>
                                 <td>{{ $payment->sum }}</td>
-                                <td><button class="btn btn-primary">
-                                    <a href="" class="text-white">
-                                        {{ __('Edit Kelas') }}
-                                    </a>
-                                </button></td>
+                                <td><a href="{{ route('dashboard.payment.edit', $payment->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
+                                    + Create Class
+                                </a>
+                                <form class="inline" action= {{ route('dashboard.payment.destroy', $payment->id)  }} method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="bg-red-500 text-black rounded-md px-2 py-1 m-2">Delete</button>
+                                </form></td>
                                 {{-- <td>
                                     <button class="btn btn-primary">
                                         <a href="{{ route('dashboard.room.show', $room->id) }}" class="text-white">

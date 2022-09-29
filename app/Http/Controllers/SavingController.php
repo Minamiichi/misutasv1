@@ -72,9 +72,16 @@ class SavingController extends Controller
      * @param  \App\Models\Saving  $saving
      * @return \Illuminate\Http\Response
      */
-    public function edit(Saving $saving)
+    public function edit($id)
     {
-        //
+        $saving = Saving::findOrFail($id);
+        $students = Student::all();
+        // dd($students);
+
+        return view('pages.dashboard.admin.saving.edit', [
+            'saving' => $saving,
+            'students' => $students
+        ]);
     }
 
     /**
@@ -84,9 +91,12 @@ class SavingController extends Controller
      * @param  \App\Models\Saving  $saving
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Saving $saving)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = Saving::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.saving.index');
     }
 
     /**
@@ -97,6 +107,8 @@ class SavingController extends Controller
      */
     public function destroy(Saving $saving)
     {
-        //
+        $saving->delete();
+        
+        return redirect()->route('dashboard.saving.index');
     }
 }

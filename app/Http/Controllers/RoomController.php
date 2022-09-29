@@ -76,9 +76,14 @@ class RoomController extends Controller
      * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit($id)
     {
-        //
+        $room = Room::findOrFail($id);
+        // dd($students);
+
+        return view('pages.dashboard.admin.room.edit', [
+            'room' => $room
+        ]);
     }
 
     /**
@@ -88,11 +93,13 @@ class RoomController extends Controller
      * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room)
+    public function update(Request $request, $id)
     {
-        //
-    }
 
+        $data = Room::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.room.index');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -101,6 +108,8 @@ class RoomController extends Controller
      */
     public function destroy(Room $room)
     {
-        //
+        $room->delete();
+        
+        return redirect()->route('dashboard.room.index');
     }
 }

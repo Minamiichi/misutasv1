@@ -32,20 +32,20 @@
                                     </div>
                                 </div>
                             @endif
-                            <form action="{{ route('dashboard.payment.store') }}" class="w-full"
-                                method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('dashboard.payment.update', $payment->id) }}" class="w-full" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3">
                                         <label for=""
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No Pembayaran</label>
-                                        <input type="text" value="{{ old('no_pembayaran') }}" name="no_pembayaran"
+                                        <input type="text" value="{{ old('no_pembayaran') ?? $payment->no_pembayaran }}" name="no_pembayaran"
                                             class="form-control form-control-user" placeholder="No Pembayaran" id="">
                                     </div>
                                     <div class="col-sm-12 mb-3">
                                         <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
                                         <select name="student_id" id="nisn" class="form-control form-control-user">
-                                            <option value="">Select NISN</option>
+                                            <option value="{{ old(' $payment->student->id') ?? $payment->student->id }}"> {{ $payment->student->nisn }}</option>
                                             <option value="">---------------</option>
                                             @foreach ($students as $student)
                                             <option value="{{ $student->id }}">{{ $student->nisn }}</option>
@@ -58,13 +58,13 @@
                                     <div class="col-sm-12 mb-3">
                                         <label for=""
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tanggal Pembayaran</label>
-                                        <input type="date" value="{{ old('date') }}" name="date"
+                                        <input type="date" value="{{ old('date') ?? $payment->date }}" name="date"
                                             class="form-control form-control-user" placeholder="Tanggal Pembayaran Pembayaran" id="">
                                     </div>
                                     <div class="col-sm-12 mb-3">
                                         <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
                                         <select name="category" id="nisn" class="form-control form-control-user">
-                                            <option value="">Jenis Pembayaran</option>
+                                            <option value="{{ old(' $payment->category') ?? $payment->category }}">{{ $payment->category }}</option>
                                             <option value="">---------------</option>
                                             
                                             <option value="KAS">KAS</option>
@@ -77,7 +77,7 @@
                                     <div class="col-sm-12 mb-3">
                                         <label for=""
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Jumlah Pembayaran</label>
-                                        <input type="text" value="{{ old('sum') }}" name="sum"
+                                        <input type="text" value="{{ old('sum') ?? $payment->sum }}" name="sum"
                                             class="form-control form-control-user" placeholder="Jumlah Pembayaran" id="">
                                     </div>
                                 </div>
