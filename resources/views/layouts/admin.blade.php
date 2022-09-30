@@ -123,6 +123,19 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog"
+                    aria-expanded="true" aria-controls="collapseBlog">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Data Blog</span>
+                </a>
+                <div id="collapseBlog" class="collapse" aria-labelledby="headingBlog"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('dashboard.blog.index') }}">Home</a>
+                    </div>
+                </div>
+            </li>
 
             {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePpdb"
@@ -204,7 +217,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ url('/admin/js/sb-admin-2.min.js') }}"></script>
-
+    {{ $script ?? '' }} 
 </body>
 
 </html>

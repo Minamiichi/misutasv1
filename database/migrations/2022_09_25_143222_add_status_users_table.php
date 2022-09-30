@@ -14,7 +14,7 @@ class AddStatusUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('status')->after('roles')->default('INACTIVE');
+            $table->string('status')->after('roles')->default('ACTIVE');
         });
     }
 

@@ -7,103 +7,47 @@
     <div class="container">
         <div class="blog-items">
             <div class="row">
-                <div class="blog-content col-lg-8 col-md-12">
+                <div class="blog-content col-lg-8 col-md">
                     <div class="blog-item-box">
                         <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item wow fadeInUp">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <img src="/landingPage/assets/img/1500x700.png" alt="Thumb">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <div class="tags">
-                                        <a href="#">SEO</a>
-                                        <a href="#">Analysis</a>
+                        @foreach ($blogs as $blog)                  
+                            <div class="single-item">
+                                <div class="item wow fadeInUp">
+                                    <div class="thumb">
+                                        <a href="#">
+                                            <img src="{{ $blog->galleries()->exists() ? Storage::url($blog->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}" alt="Thumb">
+                                        </a>
                                     </div>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fas fa-calendar-alt"></i> 18 Nov, 2020</li>
-                                            <li>By <a href="#">Park Lee</a></li>
-                                        </ul>
+                                    <div class="info">
+                                        <div class="tags">
+                                            <a href="#">SEO</a>
+                                            <a href="#">Analysis</a>
+                                        </div>
+                                        <div class="meta">
+                                            <ul>
+                                                <li><i class="fas fa-calendar-alt"></i> 16 Nov, 2020</li>
+                                                <li>By <a href="#">Park Lee</a></li>
+                                            </ul>
+                                        </div>
+                                        <h4>
+                                            <a href="#">{{ $blog->title }}</a>
+                                        </h4>
+                                        <span>
+                                            <p>
+                                                {!! Str::limit($blog->body, 70) !!}
+                                            </p>
+                                        </span>
+                                        <a class="btn circle btn-gradient btn-sm" href="{{ url('blog/details', $blog->slug) }}">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
                                     </div>
-                                    <h4>
-                                        <a href="#">Discovery incommode earnestly no he commanded</a>
-                                    </h4>
-                                    <p>
-                                        Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness something the partiality unaffected. Incommode so intention defective at convinced. Led income months itself and houses you
-                                    </p>
-                                    <a class="btn circle btn-gradient btn-sm" href="{{ route('details') }}">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item wow fadeInUp">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <img src="/landingPage/assets/img/1500x700.png" alt="Thumb">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <div class="tags">
-                                        <a href="#">Performance</a>
-                                        <a href="#">High</a>
-                                    </div>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fas fa-calendar-alt"></i> 05 Dec, 2020</li>
-                                            <li>By <a href="#">Park Lee</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4>
-                                        <a href="#">Unsatiable entreaties may collecting Power.</a>
-                                    </h4>
-                                    <p>
-                                        Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness something the partiality unaffected. Incommode so intention defective at convinced. Led income months itself and houses you
-                                    </p>
-                                    <a class="btn circle btn-gradient btn-sm" href="#">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
                                 </div>
                             </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item wow fadeInUp">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <img src="/landingPage/assets/img/1500x700.png" alt="Thumb">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <div class="tags">
-                                        <a href="#">Affiliate</a>
-                                        <a href="#">Process</a>
-                                    </div>
-                                    <div class="meta">
-                                        <ul>
-                                            <li><i class="fas fa-calendar-alt"></i> 26 Sep, 2020</li>
-                                            <li>By <a href="#">Park Lee</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4>
-                                        <a href="#">Consulted admitting is power acuteness.</a>
-                                    </h4>
-                                    <p>
-                                        Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness something the partiality unaffected. Incommode so intention defective at convinced. Led income months itself and houses you
-                                    </p>
-                                    <a class="btn circle btn-gradient btn-sm" href="#">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                         <!-- End Single Item -->
                     </div>
                     
                     <!-- Pagination -->
                     <div class="row">
-                        <div class="col-md-12 pagi-area text-center">
+                        <div class="col-md-9 pagi-area text-center">
                             <nav aria-label="navigation">
                                 <ul class="pagination">
                                     <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-left"></i></a></li>
@@ -117,7 +61,7 @@
                     </div>
                 </div>
                 <!-- Start Sidebar -->
-                <div class="sidebar wow fadeInLeft col-lg-4 col-md-12">
+                <div class="sidebar col-lg-4 col-md">
                     <aside>
                         <div class="sidebar-item search">
                             <div class="sidebar-info">
@@ -135,20 +79,20 @@
                                 <li>
                                     <div class="thumb">
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="Thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="Thumb">
                                         </a>
                                     </div>
                                     <div class="info">
                                         <a href="#">Participate in staff meetingness manage dedicated</a>
                                         <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> 12 Feb, 2020</span>
+                                            <span class="post-date"><i class="fas fa-clock"></i> 9 Feb, 2020</span>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="thumb">
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="Thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="Thumb">
                                         </a>
                                     </div>
                                     <div class="info">
@@ -161,7 +105,7 @@
                                 <li>
                                     <div class="thumb">
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="Thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="Thumb">
                                         </a>
                                     </div>
                                     <div class="info">
@@ -186,13 +130,13 @@
                                         <a href="#">national <span>25</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">sports <span>18</span></a>
+                                        <a href="#">sports <span>16</span></a>
                                     </li>
                                     <li>
                                         <a href="#">megazine <span>37</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">health <span>12</span></a>
+                                        <a href="#">health <span>9</span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -205,32 +149,32 @@
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/800x800.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
                                         </a>
                                     </li>
                                 </ul>

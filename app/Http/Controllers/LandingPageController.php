@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Blog;
+use App\Models\Room;
 use App\Models\User;
 use App\Models\Alumni;
-use App\Models\Room;
 use App\Models\Student;
 use App\Models\Teacher;
+use Illuminate\Http\Request;
 
 
 class LandingPageController extends Controller
@@ -23,7 +24,9 @@ class LandingPageController extends Controller
         $students = Student::count();
         $rooms = Room::count();
         $alumnus = Alumni::count();
-        return view('pages.landingpage.index', compact('teachers','students','rooms','alumnus'));
+        $blogs = Blog::with(['galleries'])->latest()->get();
+
+        return view('pages.landingpage.index', compact('teachers','students','rooms','alumnus', 'blogs'));
     
     }
     public function about(Request $request)
@@ -40,7 +43,10 @@ class LandingPageController extends Controller
 
     public function blog(Request $request){
 
-        return view('pages.landingpage.blog.index');
+        $blogs = Blog::with(['galleries'])->latest()->get();
+
+
+        return view('pages.landingpage.blog.index', compact('blogs'));
     }
 
     /**
@@ -49,9 +55,15 @@ class LandingPageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function details(Request $request){
-        return view('pages.blog.details');
+    public function details($slug){
+
+        $blog = Blog::with(['galleries'])->where('slug', $slug)->first();
+        $recents = Blog::with(['galleries'])->inRandomOrder()->limit(4)->get();
+        // dd($blog);
+
+        return view('pages.landingpage.blog.details', compact('blog', 'recents'));
     }
+
     public function siswa(Request $request)
     {
         return view ('pages.landingpage.siswa.index');

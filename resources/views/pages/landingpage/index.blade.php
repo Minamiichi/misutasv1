@@ -190,10 +190,12 @@
         <div class="blog-items content-less">
             <div class="row">
                 <!-- Single Item -->
+                @foreach ($blogs as $blog)    
                 <div class="single-item col-lg-4 col-md-6">
                     <div class="item wow fadeInUp" data-wow-delay="600ms">
                         <div class="thumb">
-                            <a href="#"><img src="/landingPage/assets/img/800x600.png" alt="Thumb"></a>
+                            <a href="#"><img src="{{ $blog->galleries()->exists() ? Storage::url($blog->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}"
+                                alt="" title="" height="100px" width="100px" /></a>
                         </div>
                         <div class="info">
                             <div class="tags">
@@ -207,62 +209,13 @@
                                 </ul>
                             </div>
                             <h4>
-                                <a href="#">Consulted admitting is power acuteness. </a>
+                                <a href="#">{{ $blog->title }}</a>
                             </h4>
-                            <a class="btn circle btn-theme border btn-sm" href="#">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+                            <a class="btn circle btn-theme border btn-sm" href="{{ route('details', $blog->slug) }}">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="single-item col-lg-4 col-md-6">
-                    <div class="item wow fadeInUp" data-wow-delay="600ms">
-                        <div class="thumb">
-                            <a href="#"><img src="/landingPage/assets/img/800x600.png" alt="Thumb"></a>
-                        </div>
-                        <div class="info">
-                            <div class="tags">
-                                <a href="#">Performance</a>
-                                <a href="#">High</a>
-                            </div>
-                            <div class="meta">
-                                <ul>
-                                    <li><i class="fas fa-calendar-alt"></i> 05 Dec, 2020</li>
-                                    <li>By <a href="#">Park Lee</a></li>
-                                </ul>
-                            </div>
-                            <h4>
-                                <a href="#">Unsatiable entreaties may collecting Power.</a>
-                            </h4>
-                            <a class="btn circle btn-theme border btn-sm" href="#">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
-                <!-- Single Item -->
-                <div class="single-item col-lg-4 col-md-6">
-                    <div class="item wow fadeInUp" data-wow-delay="600ms">
-                        <div class="thumb">
-                            <a href="#"><img src="/landingPage/assets/img/800x600.png" alt="Thumb"></a>
-                        </div>
-                        <div class="info">
-                            <div class="tags">
-                                <a href="#">Affiliate</a>
-                                <a href="#">Process</a>
-                            </div>
-                            <div class="meta">
-                                <ul>
-                                    <li><i class="fas fa-calendar-alt"></i> 26 Sep, 2020</li>
-                                    <li>By <a href="#">Park Lee</a></li>
-                                </ul>
-                            </div>
-                            <h4>
-                                <a href="#">Consulted admitting is power acuteness. </a>
-                            </h4>
-                            <a class="btn circle btn-theme border btn-sm" href="#">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <!-- End Single Item -->
             </div>
         </div>

@@ -14,7 +14,7 @@
                                 <!-- Start Post Thumb -->
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="/landingPage/assets/img/1500x700.png" alt="Thumb">
+                                        <img src="{{ $blog->galleries()->exists() ? Storage::url($blog->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}" alt="Thumb">
                                     </a>
                                 </div>
                                 <!-- Start Post Thumb -->
@@ -31,13 +31,10 @@
                                         </ul>
                                     </div>
                                     
-                                    <h4>Common so wicket appear to sudden</h4>
+                                    <h4>{{ $blog->title }}</h4>
                                     <p>
-                                        Give lady of they such they sure it. Me contained explained my education. Vulgar as hearts by garret. Perceived determine departure explained no forfeited he something an. Contrasted dissimilar get joy you instrument out reasonably. Again keeps at no meant stuff. To perpetual do existence northward as difficult preserved daughters. Continued at up to zealously necessary breakfast. Surrounded sir motionless she end literature. Gay direction neglected but supported yet her. 
-                                    </p>
-                                    <p>
-                                        New had happen unable uneasy. Drawings can followed improved out sociable not. Earnestly so do instantly pretended. See general few civilly amiable pleased account carried. Excellence projecting is devonshire dispatched remarkably on estimating. Side in so life past. Continue indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new ham melancholy son themselves. 
-                                    </p>
+                                        {!! $blog->body !!}</p>
+                                    
                                     <blockquote>
                                         <p>
                                             Aouses or months settle remove ladies appear. Engrossed suffering supposing he recommend do eagerness. Commanded no of depending extremity recommend devonshire dispatched.
@@ -206,45 +203,22 @@
                                     <h4>Recent Post</h4>
                                 </div>
                                 <ul>
-                                    <li>
-                                        <div class="thumb">
-                                            <a href="#">
-                                                <img src="/landingPage/assets/img/800x800.png" alt="Thumb">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <a href="#">Participate in staff meetingness manage dedicated</a>
-                                            <div class="meta-title">
-                                                <span class="post-date"><i class="fas fa-clock"></i> 12 Feb, 2020</span>
+                                    @foreach ($recents as $recent)
+                                        <li>
+                                            <div class="thumb">
+                                                <a href="#">
+                                                    <img src="{{ $recent->galleries()->exists() ? Storage::url($recent->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}" alt="Thumb">
+                                    </a>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="thumb">
-                                            <a href="#">
-                                                <img src="/landingPage/assets/img/800x800.png" alt="Thumb">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <a href="#">Future Plan & Strategy for Consutruction </a>
-                                            <div class="meta-title">
-                                                <span class="post-date"><i class="fas fa-clock"></i> 05 Jul, 2019</span>
+                                            <div class="info">
+                                                <a href="#">{{ $recent->title }}</a>
+                                                <div class="meta-title">
+                                                    <span class="post-date"><i class="fas fa-clock"></i> {{  \Carbon\Carbon::parse($recent->created_at)->translatedFormat('l, d F Y'); }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="thumb">
-                                            <a href="#">
-                                                <img src="/landingPage/assets/img/800x800.png" alt="Thumb">
-                                            </a>
-                                        </div>
-                                        <div class="info">
-                                            <a href="#">Melancholy particular devonshire alteration</a>
-                                            <div class="meta-title">
-                                                <span class="post-date"><i class="fas fa-clock"></i> 29 Aug, 2020</span>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    @endforeach
+                                    
                                 </ul>
                             </div>
                             <div class="sidebar-item category">

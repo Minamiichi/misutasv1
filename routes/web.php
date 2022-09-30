@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogGalleryController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InmutationController;
@@ -30,7 +32,7 @@ Route::get('/infoPpdb', [LandingPageController::class, 'infoPpdb'])->name('infoP
 Route::get('/siswa', [LandingPageController::class, 'siswa'])->name('siswa');
 
 Route::get('/blog', [LandingPageController::class, 'blog'])->name('blog');
-Route::get('/blog/details', [LandingPageController::class, 'details'])->name('details');
+Route::get('/blog/details/{slug}' , [LandingPageController::class, 'details'])->name('details');
 
 Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -46,5 +48,10 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         Route::resource('outmutation', OutmutationController::class);
         Route::resource('payment', PaymentController::class);
         Route::resource('saving', SavingController::class);
+
+        Route::resource('blog', BlogController::class); 
+        Route::resource('blog.gallery', BlogGalleryController::class)->shallow()->only([
+            'index', 'create', 'store', 'destroy'
+        ]);
     });
 });
