@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ppdb;
+use App\Models\User;
+
 class PpdbController extends Controller
 {
     /**
@@ -24,7 +26,8 @@ class PpdbController extends Controller
      */
     public function create()
     {
-        return view('pages.landingpage.ppdb.create');
+        $users = User::first();
+        return view('create', compact('users'));
     }
 
     /**
@@ -39,7 +42,7 @@ class PpdbController extends Controller
 
         Ppdb::create($data);
 
-        return redirect()->route('dashboard.ppdb.index');
+        return redirect()->route('dashboard.index');
     }
 
     /**

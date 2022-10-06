@@ -38,7 +38,7 @@ Route::get('/blog/details/{slug}' , [LandingPageController::class, 'details'])->
 
 Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('index');
-    
+    Route::resource('ppdb', PpdbController::class);
 
     Route::middleware(['admin'])->group(function(){
         Route::resource('admindashboard', AdmindashboardController::class);
@@ -46,7 +46,6 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         Route::resource('room', RoomController::class);
         Route::resource('alumni', AlumniController::class);
         Route::resource('teacher', TeacherController::class);
-        Route::resource('ppdb', PpdbController::class);
         Route::resource('inmutation', InmutationController::class);
         Route::resource('outmutation', OutmutationController::class);
         Route::resource('payment', PaymentController::class);
