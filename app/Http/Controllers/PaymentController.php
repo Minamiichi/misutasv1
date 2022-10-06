@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
+use App\Models\User;
+use App\Models\Alumni;
 use App\Models\Payment;
 use App\Models\Student;
-use App\Models\Alumni;
-use App\Models\Room;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -24,8 +25,9 @@ class PaymentController extends Controller
         $student = Student::count();
         $rooms = Room::count();
         $teachers = Teacher::count();
-
-        return view('pages.dashboard.admin.payment.index', compact('students', 'payments','alumni', 'student', 'rooms' , 'teachers'));
+        $users = User::first();
+        
+        return view('pages.dashboard.admin.payment.index', compact('students', 'payments','alumni', 'student', 'rooms' , 'teachers', 'users'));
     }
 
     /**

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Student;
-use App\Models\Outmutation;
 use App\Models\Inmutation;
+use App\Models\Outmutation;
 use Illuminate\Http\Request;
 
 class OutmutationController extends Controller
@@ -20,7 +21,9 @@ class OutmutationController extends Controller
         $students = Student::all();
         $inmutation = Inmutation::count();
         $outmutation = Outmutation::count();
-        return view('pages.dashboard.admin.mutasiKeluar.index', compact('outmutations', 'students', 'outmutation', 'inmutation'));
+        $users = User::first();
+
+        return view('pages.dashboard.admin.mutasiKeluar.index', compact('outmutations', 'students', 'outmutation', 'inmutation', 'users'));
     }
 
     /**

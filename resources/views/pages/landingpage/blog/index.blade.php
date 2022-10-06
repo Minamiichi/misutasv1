@@ -34,7 +34,7 @@
                                         </h4>
                                         <span>
                                             <p>
-                                                {!! Str::limit($blog->body, 70) !!}
+                                                {!! Str::limit($blog->body, 50) !!}
                                             </p>
                                         </span>
                                         <a class="btn circle btn-gradient btn-sm" href="{{ url('blog/details', $blog->slug) }}">Read More <i class="fas fa-long-arrow-alt-right"></i></a>

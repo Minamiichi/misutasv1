@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BlogGalleryRequest;
 use App\Models\Blog;
+use App\Models\User;
 use App\Models\BlogGallery;
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogGalleryRequest;
 
 class BlogGalleryController extends Controller
 {
@@ -19,8 +20,9 @@ class BlogGalleryController extends Controller
         $blog = Blog::find($id);
         $blogGalleries = BlogGallery::where('blogs_id', $id)->get();
         // dd($blogGalleries);
+        $users = User::first();
 
-        return view('pages.dashboard.admin.gallery.index', compact('blogGalleries', 'blog'));
+        return view('pages.dashboard.admin.gallery.index', compact('blogGalleries', 'blog', 'users'));
     }
 
     /**

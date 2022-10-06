@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\User;
 use App\Models\Alumni;
 use App\Models\Student;
 use App\Models\Teacher;
@@ -25,8 +26,9 @@ class AlumniController extends Controller
         $student = Student::count();
         $rooms = Room::count();
         $teachers = Teacher::count();
-
-        return view('pages.dashboard.admin.alumni.index', compact('alumnus', 'students', 'alumni', 'student', 'rooms' , 'teachers'));
+        $users = User::first();
+        
+        return view('pages.dashboard.admin.alumni.index', compact('alumnus', 'students', 'alumni', 'student', 'rooms' , 'teachers', 'users'));
     }
 
     /**
