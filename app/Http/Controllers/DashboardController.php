@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alumni;
 use App\Models\Room;
+use App\Models\User;
+use App\Models\Alumni;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -15,6 +16,8 @@ class DashboardController extends Controller
         $students = Student::count();
         $rooms = Room::count();
         $alumnus = Alumni::count();
-        return view('dashboard', compact('teachers','students','rooms','alumnus'));
+        $users = User::first();
+
+        return view('dashboard', compact('teachers','students','rooms','alumnus','users'));
     }
 }

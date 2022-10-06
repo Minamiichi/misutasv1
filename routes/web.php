@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmindashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\AlumniController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\SavingController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
     
 
     Route::middleware(['admin'])->group(function(){
+        Route::resource('admindashboard', AdmindashboardController::class);
         Route::resource('student', StudentController::class);
         Route::resource('room', RoomController::class);
         Route::resource('alumni', AlumniController::class);

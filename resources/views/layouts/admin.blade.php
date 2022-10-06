@@ -2,222 +2,193 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
 
-    <title>Admin PPDB</title>
+    <!-- Title Page-->
+    <title>Dashboard 4</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="{{ url('/admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <!-- Fontfaces CSS-->
+    <link href="{{ url('/admin/css/font-face.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
 
-    <!-- Custom styles for this template-->
-    <link href="{{ url('/admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS-->
+    <link href="{{ url('/admin/vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{{ url('/admin/vendor/animsition/animsition.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/wow/animate.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/slick/slick.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ url('/admin/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{{ url('/admin/css/theme.css') }}" rel="stylesheet" media="all">
 
 </head>
 
-<body id="page-top">
+<body class="animsition">
+    <div class="page-wrapper">
+        @include('components.admin.navbar')
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+        <!-- PAGE CONTENT-->
+        <div class="page-container3">
+            <section class="alert-wrap p-t-70 p-b-70">
+                <div class="container">
+                    {{-- <!-- ALERT-->
+                    <div class="alert au-alert-success alert-dismissible fade show au-alert au-alert--70per" role="alert">
+                        <i class="zmdi zmdi-check-circle"></i>
+                        <span class="content">You successfully read this important alert message.</span>
+                        <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">
+                                <i class="zmdi zmdi-close-circle"></i>
+                            </span>
+                        </button>
+                    </div> --}}
+                    <!-- END ALERT-->
                 </div>
-                <div class="sidebar-brand-text mx-3">Dashboard Admin<sup></sup></div>
-            </a>
-            <div id="sidebar-menu">
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <!-- MENU SIDEBAR-->
+                            <aside class="menu-sidebar3 js-spe-sidebar">
+                                <nav class="navbar-sidebar2 navbar-sidebar3">
+                                    <ul class="list-unstyled navbar__list">
+                                        <li>
+                                            <a href="{{ route('dashboard.admindashboard.index') }}">
+                                                <i class="fas fa-chart-bar"></i>Dashboard</a>
+                                        <li>
+                                            <a class="js-arrow" href="#">
+                                                <i class="fas fa-tachometer-alt"></i>Kelembagaan 
+                                                <span class="arrow">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                                <li>
+                                                    <a href="{{ route('dashboard.teacher.index') }}">Data Guru</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="js-arrow" href="#">
+                                                <i class="fas fa-tachometer-alt"></i>Akademik 
+                                                <span class="arrow">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                                <li>
+                                                    <a href="{{ route('dashboard.inmutation.index') }}">Mutasi Masuk</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('dashboard.outmutation.index') }}">Mutasi Keluar</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="js-arrow" href="#">
+                                                <i class="fas fa-tachometer-alt"></i>Administrasi 
+                                                <span class="arrow">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                                <li>
+                                                    <a href="{{ route('dashboard.payment.index') }}">Pembayaran</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('dashboard.saving.index') }}">Tabungan</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="js-arrow" href="#">
+                                                <i class="fas fa-tachometer-alt"></i>Data Siswa 
+                                                <span class="arrow">
+                                                    <i class="fas fa-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                                <li>
+                                                    <a href="{{ route('dashboard.student.index') }}">Semua Siswa</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('dashboard.room.index') }}">Data Kelas</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="js-arrow" href="{{ route('dashboard.alumni.index') }}">
+                                                <i class="fas fa-tachometer-alt"></i>Alumni
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="js-arrow" href="{{ route('dashboard.blog.index') }}">
+                                                <i class="fas fa-tachometer-alt"></i>Article
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </aside>
+                            <!-- END MENU SIDEBAR-->
+                        </div>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard Admin</span></a>
-            </li>
+                        
 
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                    aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Kelembagaan</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="sbmenu/kelembagaan/profil-lembaga.html">Profil Lembaga</a>
-                        {{-- <a class="collapse-item" href="{{ route('dashboard.user.index') }}">Data Pengguna</a> --}}
-                        <a class="collapse-item" href="{{ route('dashboard.teacher.index') }}">Data Guru</a>
-                        <a class="collapse-item" href="sbmenu/kelembagaan/data-jurusan.html">Data Jurusan</a>
+                        <div class="col-xl-9">
+                            <!-- PAGE CONTENT-->
+                            <div class="page-content">
+                                @yield('content')
+                                
+                                @include('components.admin.footer')
+                            </div>
+                            <!-- END PAGE CONTENT-->
+                        </div>
                     </div>
                 </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAkademik"
-                    aria-expanded="true" aria-controls="collapseAkademik">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Akademik</span>
-                </a>
-                <div id="collapseAkademik" class="collapse" aria-labelledby="headingAkademik"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('dashboard.inmutation.index') }}">Mutasi Masuk</a>
-                        <a class="collapse-item" href="{{ route('dashboard.outmutation.index') }}">Mutasi Keluar</a>
-                        {{-- <a class="collapse-item" href="sbmenu/akademik/kelulusan.html">Kelulusan</a> --}}
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdministrasi"
-                    aria-expanded="true" aria-controls="collapseAdministrasi">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pembayaran</span>
-                </a>
-                <div id="collapseAdministrasi" class="collapse" aria-labelledby="headingAdministrasi" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="{{ route('dashboard.payment.index') }}">Pembayaran</a>
-                        <a class="collapse-item " href="{{ route('dashboard.saving.index') }}">Tabungan</a>
-                        {{-- <a class="collapse-item " href="sbmenu/administrasi/kartu-pelajar.html">Kartu Pelajar</a>
-                        <a class="collapse-item " href="sbmenu/administrasi/cetak-data.html">Cetak Data</a> --}}
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSiswa"
-                    aria-expanded="true" aria-controls="collapseSiswa">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Siswa </span>
-                </a>
-                <div id="collapseSiswa" class="collapse" aria-labelledby="headingSiswa" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="{{ route('dashboard.student.index') }}">Semua Siswa</a>
-                        <a class="collapse-item" href="{{ route('dashboard.room.index') }}">Data Kelas</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAlumni"
-                    aria-expanded="true" aria-controls="collapseAlumni">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Alumni</span>
-                </a>
-                <div id="collapseAlumni" class="collapse" aria-labelledby="headingAlumni"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('dashboard.alumni.index') }}">Home</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog"
-                    aria-expanded="true" aria-controls="collapseBlog">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Blog</span>
-                </a>
-                <div id="collapseBlog" class="collapse" aria-labelledby="headingBlog"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('dashboard.blog.index') }}">Home</a>
-                    </div>
-                </div>
-            </li>
-
-            {{-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePpdb"
-                    aria-expanded="true" aria-controls="collapsePpdb">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data PPDB</span>
-                </a>
-                <div id="collapsePpdb" class="collapse" aria-labelledby="headingPpdb"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="sbmenu/dataPPDB/beranda.html">Beranda</a>
-                        <a class="collapse-item" href="sbmenu/dataPPDB/semua-pendaftar.html">Semua Pendaftar</a>
-                        <a class="collapse-item" href="sbmenu/dataPPDB/pendaftar-diterima.html">Pendaftar Diterima</a>
-                    </div>
-                </div>
-            </li> --}}
-    </div>
-
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            @include('components.admin.navbar')
-            <!-- Main Content -->
-            <div id="content">
-
-
-                @yield('content')
-                            
-                
-            </div>
-            <!-- End of Main Content -->
-            @include('components.admin.footer')
-
+            </section>
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- END PAGE CONTENT  -->
 
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+     <!-- Jquery JS-->
+     <script src="{{ url('/admin/vendor/jquery-3.2.1.min.js') }} "></script>
+     <!-- Bootstrap JS-->
+     <script src="{{ url('/admin/vendor/bootstrap-4.1/popper.min.js') }} "></script>
+     <script src="{{ url('/admin/vendor/bootstrap-4.1/bootstrap.min.js') }} "></script>
+     <!-- Vendor JS       -->
+     <script src="{{ url('/admin/vendor/slick/slick.min.js') }} ">
+     </script>
+     <script src="{{ url('/admin/vendor/wow/wow.min.js') }} "></script>
+     <script src="{{ url('/admin/vendor/animsition/animsition.min.js') }} "></script>
+     <script src="{{ url('/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }} ">
+     </script>
+     <script src="{{ url('/admin/vendor/counter-up/jquery.waypoints.min.js') }} "></script>
+     <script src="{{ url('/admin/vendor/counter-up/jquery.counterup.min.js') }} ">
+     </script>
+     <script src="{{ url('/admin/vendor/circle-progress/circle-progress.min.js') }} "></script>
+     <script src="{{ url('/admin/vendor/perfect-scrollbar/perfect-scrollbar.js') }} "></script>
+     <script src="{{ url('/admin/vendor/chartjs/Chart.bundle.min.js') }} "></script>
+     <script src="{{ url('/admin/vendor/select2/select2.min.js') }} ">
+     </script>
+ 
+     <!-- Main JS-->
+     <script src="{{ url('/admin/js/main.js') }}"></script>
+     {{ $script ?? '' }}
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ url('/admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ url('/admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ url('/admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ url('/admin/js/sb-admin-2.min.js') }}"></script>
-    {{ $script ?? '' }} 
 </body>
 
 </html>
+<!-- end document-->
