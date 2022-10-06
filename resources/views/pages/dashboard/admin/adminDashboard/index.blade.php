@@ -1,7 +1,7 @@
 @extends('layouts/admin')
 
 @section('content')
-<h1>Data Dashboard</h1>
+<h1>Dashboard</h1>
 <!-- STATISTIC-->
 <section class="statistic">
     <div class="section__content section__content--p30">
@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-md-6 col-lg-3">
                     <div class="statistic__item">
-                        <h2 class="number">10,368</h2>
-                        <span class="desc">members online</span>
+                        <h2 class="number">{{ $students }}</h2>
+                        <span class="desc">Siswa</span>
                         <div class="icon">
                             <i class="zmdi zmdi-account-o"></i>
                         </div>
@@ -18,8 +18,8 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="statistic__item">
-                        <h2 class="number">388,688</h2>
-                        <span class="desc">items sold</span>
+                        <h2 class="number">{{ $teachers }}</h2>
+                        <span class="desc">Guru</span>
                         <div class="icon">
                             <i class="zmdi zmdi-shopping-cart"></i>
                         </div>
@@ -27,8 +27,8 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="statistic__item">
-                        <h2 class="number">1,086</h2>
-                        <span class="desc">this week</span>
+                        <h2 class="number">{{ $rooms }}</h2>
+                        <span class="desc">Kelas</span>
                         <div class="icon">
                             <i class="zmdi zmdi-calendar-note"></i>
                         </div>
@@ -36,8 +36,8 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="statistic__item">
-                        <h2 class="number">$1,060,386</h2>
-                        <span class="desc">total earnings</span>
+                        <h2 class="number">{{ $alumnus }}</h2>
+                        <span class="desc">Alumni</span>
                         <div class="icon">
                             <i class="zmdi zmdi-money"></i>
                         </div>

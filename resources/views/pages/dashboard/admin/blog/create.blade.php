@@ -1,6 +1,9 @@
 @extends('layouts/admin')
 
 @section('content')
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Tambah Artikel</h1>
+</div>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
        <div>
@@ -36,8 +39,8 @@
             </div>
             <div class="flex flex-wrap mx-3 mb-6">
                 <div class="w-full px-3">
-                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
-                        Save Product
+                    <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                        <i class="fa fa-save"></i>Save Data
                     </button>
                 </div>
             </div>

@@ -1,48 +1,59 @@
 @extends('layouts.admin')
 
 @section('content')
-
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables Siswa</h1>
-    <p class="mb-4">Siswa Kelas {{ $room->id }}</p>
-
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Siswa</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table border="1" class="table table-bordered" id="dataTable" width="75%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>NO</th>
-                            <th>NISN</th>
-                            <th>Nama</th>
-                            <th>Tempat Tanggal Lahir</th>
-                            <th>Kelas</th> 
-                        </tr>    
-                    </thead>
-                    <tbody>
-                        @foreach ($students as $student)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $student->nisn }}</td>
-                                <td>{{ $student->name }}</td>
-                                <td>{{ $student->born_place }}, {{ $student->birthdate }}</td>
-                                <td>{{ $student->room->name }}</td>                   
-                            </tr>
-                            @endforeach
-                    </tbody>
-                   
-                </table>
+<h1>Data </h1>
+<!-- END STATISTIC-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- DATA TABLE -->
+        <h3 class="title-5 m-b-35">data siswa kelas {{ $room->id }}</h3>
+        <div class="table-data__tool">
+            <div class="table-data__tool-left">
             </div>
         </div>
+        <div class="table-responsive table-responsive-data2">
+            <table class="table table-data2">
+                <thead>
+                    <tr>
+                        <th>NISN</th>
+                        <th>NIS</th>
+                        <th>Nama</th>
+                        <th>Tempat Tanggal Lahir</th>
+                        <th>Kelas</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach ($students as $student)
+                    <tr>
+                        <td>{{ $student->nisn }}</td>
+                        <td>{{ $student->nis }}</td>
+                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->born_place }}, {{ $student->birthdate }}</td>
+                        <td>{{ $student->room->name }}</td>
+                        <td>
+                            <div class="table-data-feature">
+                                <a href="{{ route('dashboard.student.edit', $student->id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <i class="zmdi zmdi-edit"></i>
+                                </button></a>
+                                <form class="inline" action= {{ route('dashboard.student.destroy', $student->id)  }} method="POST">
+                                    @csrf
+                                    @method('delete')
+                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <i class="zmdi zmdi-delete"></i>
+                                        </button>
+                                </form>
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                    <i class="zmdi zmdi-more"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="spacer"></tr>
+                </tbody> 
+                @endforeach
+            </table>
+        </div>
+        <!-- END DATA TABLE -->
     </div>
-
 </div>
-<!-- /.container-fluid -->
 @endsection
