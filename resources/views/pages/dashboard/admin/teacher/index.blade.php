@@ -28,7 +28,6 @@
                 </thead>
                 @foreach($teachers as $teacher)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $teacher->name }}</td>
                         <td>{{ $teacher->nip }}</td>
                         <td>{{ $teacher->study }}</td>

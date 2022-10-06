@@ -30,7 +30,6 @@
                 </thead>
                 @foreach ($inmutations as $inmutation)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $inmutation->reference }}</td>
                         <td>{{ $inmutation->entry }}</td>
                         <td>{{ $inmutation->nisn }}</td>

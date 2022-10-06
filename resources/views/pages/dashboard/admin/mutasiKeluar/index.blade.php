@@ -29,7 +29,6 @@
                 </thead>
                 @foreach ($outmutations as $outmutation)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $outmutation->reference }}</td>
                         <td>{{ $outmutation->student->nisn }}</td>
                         <td>{{ $outmutation->student->name }}</td>
