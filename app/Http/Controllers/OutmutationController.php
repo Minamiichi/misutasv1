@@ -7,6 +7,7 @@ use App\Models\Student;
 use App\Models\Inmutation;
 use App\Models\Outmutation;
 use Illuminate\Http\Request;
+use App\Http\Requests\OutmutationRequest;
 
 class OutmutationController extends Controller
 {
@@ -34,8 +35,8 @@ class OutmutationController extends Controller
     public function create()
     {
         $students = Student::all();
-
-        return view('pages.dashboard.admin.mutasiKeluar.create', compact('students'));
+        $users = User::first();
+        return view('pages.dashboard.admin.mutasiKeluar.create', compact('students', 'users'));
     }
 
     /**
@@ -44,13 +45,13 @@ class OutmutationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Student $student)
+    public function store(OutmutationRequest $request, Student $student)
     {
         $data = $request->all();
 
         Outmutation::create($data);
 
-        return redirect()->route('dashboard.outmutation.index', $student->id);
+        return redirect()->route('dashboard.outmutation.index', $student->id)->with('success', 'Data Added Successfully');
     }
 
     /**

@@ -32,7 +32,8 @@ class BlogGalleryController extends Controller
      */
     public function create(Blog $blog)
     {
-        return view('pages.dashboard.admin.gallery.create', compact('blog'));
+        $users = User::first();
+        return view('pages.dashboard.admin.gallery.create', compact('blog', 'users'));
     }
 
     /**
@@ -55,7 +56,7 @@ class BlogGalleryController extends Controller
                 ]);
             }
         }
-        return redirect()->route('dashboard.blog.gallery.index', $blog->id);
+        return redirect()->route('dashboard.blog.gallery.index', $blog->id)->with('success', 'Data Added Successfully');
     }
 
     /**

@@ -30,7 +30,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.admin.blog.create');
+        $users = User::first();
+        return view('pages.dashboard.admin.blog.create', compact('users'));
     }
 
     /**
@@ -46,7 +47,7 @@ class BlogController extends Controller
 
         Blog::create($data);
 
-        return redirect()->route('dashboard.blog.index');
+        return redirect()->route('dashboard.blog.index')->with('success', 'Data Added Successfully');
     }
 
     /**

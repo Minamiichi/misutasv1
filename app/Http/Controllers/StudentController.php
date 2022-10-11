@@ -8,6 +8,7 @@ use App\Models\Alumni;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use App\Http\Requests\StudentRequest;
 
 class StudentController extends Controller
 {
@@ -37,8 +38,8 @@ class StudentController extends Controller
     public function create()
     {
         $rooms = Room::all();
-        
-        return view('pages.dashboard.admin.student.create', compact('rooms'));
+        $users = User::first();
+        return view('pages.dashboard.admin.student.create', compact('rooms', 'users'));
     }
 
     /**
@@ -47,13 +48,13 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Room $room)
+    public function store(StudentRequest $request, Room $room)
     {
         $data = $request->all();
 
         Student::create($data);
 
-        return redirect()->route('dashboard.student.index', $room->id);
+        return redirect()->route('dashboard.student.index', $room->id)->with('success', 'Data Added Successfully');
     }
 
     /**

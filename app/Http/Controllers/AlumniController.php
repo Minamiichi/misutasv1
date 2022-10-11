@@ -8,6 +8,7 @@ use App\Models\Alumni;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use App\Http\Requests\AlumniRequest;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AlumniController extends Controller
@@ -38,8 +39,9 @@ class AlumniController extends Controller
      */
     public function create()
     {
+        $users = User::first();
 
-        return view('pages.dashboard.admin.alumni.create');
+        return view('pages.dashboard.admin.alumni.create', compact('users'));
     }
 
     /**
@@ -48,13 +50,13 @@ class AlumniController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlumniRequest $request)
     {
         $data = $request->all();
 
         Alumni::create($data);
 
-        return redirect()->route('dashboard.alumni.index');
+        return redirect()->route('dashboard.alumni.index')->with('success', 'Data Added Successfully');
     }
 
     /**

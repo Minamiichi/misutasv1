@@ -20,7 +20,7 @@ class CreatePpdbTable extends Migration
             $table->date('birthdate');
             $table->string('gender');
             $table->string('religion');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }

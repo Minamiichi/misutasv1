@@ -9,6 +9,7 @@ use App\Models\Payment;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use App\Http\Requests\PaymentRequest;
 
 class PaymentController extends Controller
 {
@@ -38,8 +39,8 @@ class PaymentController extends Controller
     public function create()
     {
         $students = Student::all();
-
-        return view('pages.dashboard.admin.payment.create', compact('students'));
+        $users = User::first();
+        return view('pages.dashboard.admin.payment.create', compact('students', 'users'));
     }
 
     /**
@@ -48,13 +49,13 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Student $student)
+    public function store(PaymentRequest $request, Student $student)
     {
         $data = $request->all();
 
         Payment::create($data);
 
-        return redirect()->route('dashboard.payment.index', $student->id);
+        return redirect()->route('dashboard.payment.index', $student->id)->with('success', 'Data Added Successfully');
     }
 
     /**

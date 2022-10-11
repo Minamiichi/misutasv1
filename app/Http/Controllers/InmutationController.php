@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Inmutation;
 use App\Models\Outmutation;
 use Illuminate\Http\Request;
+use App\Http\Requests\InmutationRequest;
 
 class InmutationController extends Controller
 {
@@ -30,7 +31,8 @@ class InmutationController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.admin.mutasiMasuk.create');
+        $users = User::first();
+        return view('pages.dashboard.admin.mutasiMasuk.create', compact('users'));
     }
 
     /**
@@ -39,13 +41,13 @@ class InmutationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InmutationRequest $request)
     {
         $data = $request->all();
 
         Inmutation::create($data);
 
-        return redirect()->route('dashboard.inmutation.index');
+        return redirect()->route('dashboard.inmutation.index')->with('success', 'Data Added Successfully');
     }
 
     /**

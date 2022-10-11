@@ -43,16 +43,8 @@
         <div class="page-container3">
             <section class="alert-wrap p-t-70 p-b-70">
                 <div class="container">
-                    {{-- <!-- ALERT-->
-                    <div class="alert au-alert-success alert-dismissible fade show au-alert au-alert--70per" role="alert">
-                        <i class="zmdi zmdi-check-circle"></i>
-                        <span class="content">You successfully read this important alert message.</span>
-                        <button class="close" type="button" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">
-                                <i class="zmdi zmdi-close-circle"></i>
-                            </span>
-                        </button>
-                    </div> --}}
+                    <!-- ALERT-->
+                    @include('components.admin.alert')
                     <!-- END ALERT-->
                 </div>
             </section>
@@ -69,7 +61,7 @@
                                                 <i class="fas fa-chart-bar"></i>Dashboard</a>
                                         <li>
                                             <a class="js-arrow" href="#">
-                                                <i class="fas fa-tachometer-alt"></i>Kelembagaan 
+                                                <i class="fas fa-archive"></i>Kelembagaan 
                                                 <span class="arrow">
                                                     <i class="fas fa-angle-down"></i>
                                                 </span>
@@ -82,7 +74,7 @@
                                         </li>
                                         <li>
                                             <a class="js-arrow" href="#">
-                                                <i class="fas fa-tachometer-alt"></i>Akademik 
+                                                <i class="fas fa-list-alt"></i>Akademik 
                                                 <span class="arrow">
                                                     <i class="fas fa-angle-down"></i>
                                                 </span>
@@ -98,7 +90,7 @@
                                         </li>
                                         <li>
                                             <a class="js-arrow" href="#">
-                                                <i class="fas fa-tachometer-alt"></i>Administrasi 
+                                                <i class="fas fa-credit-card"></i>Administrasi 
                                                 <span class="arrow">
                                                     <i class="fas fa-angle-down"></i>
                                                 </span>
@@ -114,7 +106,7 @@
                                         </li>
                                         <li>
                                             <a class="js-arrow" href="#">
-                                                <i class="fas fa-tachometer-alt"></i>Data Siswa 
+                                                <i class="fas fa-users"></i>Data Siswa 
                                                 <span class="arrow">
                                                     <i class="fas fa-angle-down"></i>
                                                 </span>
@@ -130,12 +122,12 @@
                                         </li>
                                         <li>
                                             <a class="js-arrow" href="{{ route('dashboard.alumni.index') }}">
-                                                <i class="fas fa-tachometer-alt"></i>Alumni
+                                                <i class="fas fa-user"></i>Alumni
                                             </a>
                                         </li>
                                         <li>
                                             <a class="js-arrow" href="{{ route('dashboard.blog.index') }}">
-                                                <i class="fas fa-tachometer-alt"></i>Article
+                                                <i class="fas fa-book"></i>Article
                                             </a>
                                         </li>
                                     </ul>

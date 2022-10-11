@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
+use App\Models\User;
+use App\Models\Alumni;
 use App\Models\Saving;
 use App\Models\Student;
-use App\Models\Room;
-use App\Models\Alumni;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use App\Http\Requests\SavingRequest;
 
 class SavingController extends Controller
 {
@@ -24,8 +26,9 @@ class SavingController extends Controller
         $student = Student::count();
         $room = Room::count();
         $teachers = Teacher::count();
+        $users = User::first();
 
-        return view('pages.dashboard.admin.saving.index', compact('students', 'savings','alumni', 'student', 'room' , 'teachers'));
+        return view('pages.dashboard.admin.saving.index', compact('students', 'savings','alumni', 'student', 'room' , 'teachers', 'users'));
     }
 
     /**
@@ -36,8 +39,8 @@ class SavingController extends Controller
     public function create()
     {
         $students = Student::all();
-
-        return view('pages.dashboard.admin.saving.create', compact('students'));
+        $users = User::first();
+        return view('pages.dashboard.admin.saving.create', compact('students', 'users'));
     }
 
     /**
@@ -46,13 +49,13 @@ class SavingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Student $student)
+    public function store(SavingRequest $request, Student $student)
     {
         $data = $request->all();
 
         Saving::create($data);
 
-        return redirect()->route('dashboard.saving.index', $student->id);
+        return redirect()->route('dashboard.saving.index', $student->id)->with('success', 'Data Added Successfully');
     }
 
     /**

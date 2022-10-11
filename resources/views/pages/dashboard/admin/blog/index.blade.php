@@ -42,7 +42,7 @@
                                         </button>
                                 </form>
                                 <a href="{{ route('dashboard.blog.gallery.index', $blog->id) }}">
-                                <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Gallery">
                                     <i class="zmdi zmdi-more"></i>
                                 </button></a>
                             </div>

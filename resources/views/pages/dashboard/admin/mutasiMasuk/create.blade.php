@@ -8,22 +8,6 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            @if($errors->any())
-                <div class="mb-5" roles="alert">
-                    <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-                        There's something wrong!
-                    </div>
-                    <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-                        <p>
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </p>
-                    </div>
-                </div>
-            @endif
             <form action="{{ route('dashboard.inmutation.store') }}" class="w-full" method="POST"
                 enctype="multipart/form-data">
                 @csrf
@@ -98,11 +82,11 @@
                         <input type="text" value="{{ old('address') }}" name="address"
                             class="form-control form-control-user" placeholder="Alamat" id="">
                     </div>
-                </div>
-                <div class="col-lg-12">
-                    <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
-                        <i class="fa fa-save"></i>Save Data
-                    </button>
+                    <div class="col-lg-12">
+                        <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                            <i class="fa fa-save"></i>Save Data
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
