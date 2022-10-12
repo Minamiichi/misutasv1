@@ -70,10 +70,11 @@ class InmutationController extends Controller
     public function edit($id)
     {
         $inmutation = Inmutation::findOrFail($id);
+        $users = User::first();
 
         return view('pages.dashboard.admin.mutasiMasuk.edit', [
             'inmutation' => $inmutation
-        ]);
+        ],compact('users'));
     }
 
     /**

@@ -74,10 +74,11 @@ class OutmutationController extends Controller
     public function edit($id)
     {
         $outmutation = Outmutation::findOrFail($id);
+        $users = User::first();
 
         return view('pages.dashboard.admin.mutasiKeluar.edit', [
             'outmutation' => $outmutation
-        ]);
+        ],compact('users'));
     }
 
     /**

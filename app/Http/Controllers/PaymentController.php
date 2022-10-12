@@ -79,12 +79,13 @@ class PaymentController extends Controller
     {
         $payment = Payment::findOrFail($id);
         $students = Student::all();
+        $users = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.payment.edit', [
             'payment' => $payment,
             'students' => $students
-        ]);
+        ],compact('users'));
     }
 
     /**

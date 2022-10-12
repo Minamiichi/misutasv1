@@ -78,12 +78,13 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $rooms = Room::all();
+        $users = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.student.edit', [
             'student' => $student,
             'rooms' => $rooms
-        ]);
+        ],compact('users'));
     }
     /**
      * Update the specified resource in storage.

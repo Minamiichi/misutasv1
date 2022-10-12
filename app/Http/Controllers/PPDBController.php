@@ -58,7 +58,7 @@ class PpdbController extends Controller
         return view('pages.landingpage.ppdb.show', [
             'ppdb' => $ppdb,
             
-        ]);
+        ],compact('users'));
     }
 
     /**

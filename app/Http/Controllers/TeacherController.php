@@ -75,11 +75,12 @@ class TeacherController extends Controller
     public function edit($id)
     {
         $teacher = Teacher::findOrFail($id);
+        $users = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.teacher.edit', [
             'teacher' => $teacher
-        ]);
+        ], compact('users'));
     }
 
     /**

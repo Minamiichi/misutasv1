@@ -83,11 +83,12 @@ class RoomController extends Controller
     public function edit($id)
     {
         $room = Room::findOrFail($id);
+        $users = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.room.edit', [
             'room' => $room
-        ]);
+        ],compact('users'));
     }
 
     /**

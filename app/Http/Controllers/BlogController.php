@@ -67,9 +67,14 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        $users = User::first();
+
+        return view('pages.dashboard.admin.blog.edit', [
+            'blog' => $blog
+        ],compact('users'));
     }
 
     /**
@@ -79,9 +84,12 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = Blog::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.blog.index');
     }
 
     /**

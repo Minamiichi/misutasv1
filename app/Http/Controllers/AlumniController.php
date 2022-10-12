@@ -79,11 +79,12 @@ class AlumniController extends Controller
     public function edit(Alumni $alumni, $id)
     {
         $alumni = Alumni::findOrFail($id);
+        $users = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.alumni.edit', [
             'alumni' => $alumni
-        ]);
+        ],compact('users'));
     }
 
     /**

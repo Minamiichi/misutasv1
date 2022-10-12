@@ -79,12 +79,13 @@ class SavingController extends Controller
     {
         $saving = Saving::findOrFail($id);
         $students = Student::all();
+        $users = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.saving.edit', [
             'saving' => $saving,
             'students' => $students
-        ]);
+        ],compact('users'));
     }
 
     /**
