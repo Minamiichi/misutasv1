@@ -26,9 +26,9 @@ class PaymentController extends Controller
         $student = Student::count();
         $rooms = Room::count();
         $teachers = Teacher::count();
-        $users = User::first();
+        $user = User::first();
         
-        return view('pages.dashboard.admin.payment.index', compact('students', 'payments','alumni', 'student', 'rooms' , 'teachers', 'users'));
+        return view('pages.dashboard.admin.payment.index', compact('students', 'payments','alumni', 'student', 'rooms' , 'teachers', 'user'));
     }
 
     /**
@@ -39,8 +39,8 @@ class PaymentController extends Controller
     public function create()
     {
         $students = Student::all();
-        $users = User::first();
-        return view('pages.dashboard.admin.payment.create', compact('students', 'users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.payment.create', compact('students', 'user'));
     }
 
     /**
@@ -79,13 +79,13 @@ class PaymentController extends Controller
     {
         $payment = Payment::findOrFail($id);
         $students = Student::all();
-        $users = User::first();
+        $user = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.payment.edit', [
             'payment' => $payment,
             'students' => $students
-        ],compact('users'));
+        ],compact('user'));
     }
 
     /**

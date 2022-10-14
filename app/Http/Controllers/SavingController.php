@@ -26,9 +26,9 @@ class SavingController extends Controller
         $student = Student::count();
         $room = Room::count();
         $teachers = Teacher::count();
-        $users = User::first();
+        $user = User::first();
 
-        return view('pages.dashboard.admin.saving.index', compact('students', 'savings','alumni', 'student', 'room' , 'teachers', 'users'));
+        return view('pages.dashboard.admin.saving.index', compact('students', 'savings','alumni', 'student', 'room' , 'teachers', 'user'));
     }
 
     /**
@@ -39,8 +39,8 @@ class SavingController extends Controller
     public function create()
     {
         $students = Student::all();
-        $users = User::first();
-        return view('pages.dashboard.admin.saving.create', compact('students', 'users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.saving.create', compact('students', 'user'));
     }
 
     /**
@@ -79,13 +79,13 @@ class SavingController extends Controller
     {
         $saving = Saving::findOrFail($id);
         $students = Student::all();
-        $users = User::first();
+        $user = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.saving.edit', [
             'saving' => $saving,
             'students' => $students
-        ],compact('users'));
+        ],compact('user'));
     }
 
     /**

@@ -17,9 +17,9 @@ class DashboardController extends Controller
         $students = Student::count();
         $rooms = Room::count();
         $alumnus = Alumni::count();
-        $users = User::first();
+        $user = User::first();
         $ppdbs = Ppdb::all();
 
-        return view('dashboard', compact('teachers','students','rooms','alumnus','users', 'ppdbs'));
+        return view('dashboard', compact('teachers','students','rooms','alumnus','user', 'ppdbs'));
     }
 }

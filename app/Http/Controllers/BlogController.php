@@ -18,9 +18,9 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::all();
-        $users = User::first();
+        $user = User::first();
 
-        return view('pages.dashboard.admin.blog.index', compact('blogs', 'users'));
+        return view('pages.dashboard.admin.blog.index', compact('blogs', 'user'));
     }
 
     /**
@@ -30,8 +30,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $users = User::first();
-        return view('pages.dashboard.admin.blog.create', compact('users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.blog.create', compact('user'));
     }
 
     /**
@@ -70,11 +70,11 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::findOrFail($id);
-        $users = User::first();
+        $user = User::first();
 
         return view('pages.dashboard.admin.blog.edit', [
             'blog' => $blog
-        ],compact('users'));
+        ],compact('user'));
     }
 
     /**

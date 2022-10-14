@@ -22,9 +22,9 @@ class OutmutationController extends Controller
         $students = Student::all();
         $inmutation = Inmutation::count();
         $outmutation = Outmutation::count();
-        $users = User::first();
+        $user = User::first();
 
-        return view('pages.dashboard.admin.mutasiKeluar.index', compact('outmutations', 'students', 'outmutation', 'inmutation', 'users'));
+        return view('pages.dashboard.admin.mutasiKeluar.index', compact('outmutations', 'students', 'outmutation', 'inmutation', 'user'));
     }
 
     /**
@@ -35,8 +35,8 @@ class OutmutationController extends Controller
     public function create()
     {
         $students = Student::all();
-        $users = User::first();
-        return view('pages.dashboard.admin.mutasiKeluar.create', compact('students', 'users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.mutasiKeluar.create', compact('students', 'user'));
     }
 
     /**
@@ -74,11 +74,11 @@ class OutmutationController extends Controller
     public function edit($id)
     {
         $outmutation = Outmutation::findOrFail($id);
-        $users = User::first();
+        $user = User::first();
 
         return view('pages.dashboard.admin.mutasiKeluar.edit', [
             'outmutation' => $outmutation
-        ],compact('users'));
+        ],compact('user'));
     }
 
     /**

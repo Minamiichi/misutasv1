@@ -122,12 +122,17 @@
                                         </li>
                                         <li>
                                             <a class="js-arrow" href="{{ route('dashboard.alumni.index') }}">
-                                                <i class="fas fa-user"></i>Alumni
+                                                <i class="fas fa-group"></i>Alumni
                                             </a>
                                         </li>
                                         <li>
                                             <a class="js-arrow" href="{{ route('dashboard.blog.index') }}">
                                                 <i class="fas fa-book"></i>Article
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="js-arrow" href="{{ route('dashboard.user.index') }}">
+                                                <i class="fas fa-user"></i>User
                                             </a>
                                         </li>
                                     </ul>

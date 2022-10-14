@@ -20,9 +20,9 @@ class BlogGalleryController extends Controller
         $blog = Blog::find($id);
         $blogGalleries = BlogGallery::where('blogs_id', $id)->get();
         // dd($blogGalleries);
-        $users = User::first();
+        $user = User::first();
 
-        return view('pages.dashboard.admin.gallery.index', compact('blogGalleries', 'blog', 'users'));
+        return view('pages.dashboard.admin.gallery.index', compact('blogGalleries', 'blog', 'user'));
     }
 
     /**
@@ -32,8 +32,8 @@ class BlogGalleryController extends Controller
      */
     public function create(Blog $blog)
     {
-        $users = User::first();
-        return view('pages.dashboard.admin.gallery.create', compact('blog', 'users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.gallery.create', compact('blog', 'user'));
     }
 
     /**

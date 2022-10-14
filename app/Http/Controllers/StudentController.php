@@ -25,9 +25,9 @@ class StudentController extends Controller
         $student = Student::count();
         $room = Room::count();
         $teachers = Teacher::count();
-        $users = User::first();
+        $user = User::first();
 
-        return view('pages.dashboard.admin.student.index', compact('rooms', 'students','alumni', 'student', 'room' , 'teachers', 'users'));
+        return view('pages.dashboard.admin.student.index', compact('rooms', 'students','alumni', 'student', 'room' , 'teachers', 'user'));
     }
 
     /**
@@ -38,8 +38,8 @@ class StudentController extends Controller
     public function create()
     {
         $rooms = Room::all();
-        $users = User::first();
-        return view('pages.dashboard.admin.student.create', compact('rooms', 'users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.student.create', compact('rooms', 'user'));
     }
 
     /**
@@ -78,13 +78,13 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $rooms = Room::all();
-        $users = User::first();
+        $user = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.student.edit', [
             'student' => $student,
             'rooms' => $rooms
-        ],compact('users'));
+        ],compact('user'));
     }
     /**
      * Update the specified resource in storage.

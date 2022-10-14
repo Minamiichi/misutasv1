@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\AdmindashboardController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoomController;
-use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\BlogGalleryController;
+use App\Http\Controllers\PpdbController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\SavingController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InmutationController;
+use App\Http\Controllers\BlogGalleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\OutmutationController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\PpdbController;
-use App\Http\Controllers\SavingController;
+use App\Http\Controllers\AdmindashboardController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -54,6 +55,10 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         Route::resource('blog', BlogController::class); 
         Route::resource('blog.gallery', BlogGalleryController::class)->shallow()->only([
             'index', 'create', 'store', 'destroy'
+        ]);
+
+        Route::resource('user', UserController::class)->only([
+            'index', 'edit', 'update', 'destroy'
         ]);
     });
 });

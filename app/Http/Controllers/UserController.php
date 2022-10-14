@@ -8,9 +8,9 @@ use App\Models\Alumni;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
-class AdmindashboardController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,13 +19,15 @@ class AdmindashboardController extends Controller
      */
     public function index()
     {
+        $users = User::all();
+        $alumni = Alumni::count();
+        $student = Student::count();
+        $room = Room::count();
         $teachers = Teacher::count();
-        $students = Student::count();
-        $rooms = Room::count();
-        $alumnus = Alumni::count();
         $user = User::first();
-
-        return view('pages.dashboard.admin.adminDashboard.index', compact('teachers','students','rooms','alumnus','user'));
+        
+        
+        return view('pages.dashboard.admin.user.index', compact('users','alumni', 'student', 'room' , 'teachers', 'user'));
     }
 
     /**
@@ -35,7 +37,7 @@ class AdmindashboardController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -68,7 +70,13 @@ class AdmindashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::findOrFail($id);
+        $user = User::first();
+        // dd($students);
+
+        return view('pages.dashboard.admin.user.edit', [
+            'users' => $users
+        ],compact('users', 'user'));
     }
 
     /**
@@ -80,7 +88,9 @@ class AdmindashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = User::find($id)->update($request->all()); 
+
+        return redirect()->route('dashboard.user.index');
     }
 
     /**
@@ -89,8 +99,10 @@ class AdmindashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        
+        return redirect()->route('dashboard.user.index');
     }
 }

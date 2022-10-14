@@ -20,8 +20,8 @@ class InmutationController extends Controller
         $inmutations = Inmutation::all();
         $inmutation = Inmutation::count();
         $outmutation = Outmutation::count();
-        $users = User::first();
-        return view('pages.dashboard.admin.mutasiMasuk.index', compact('inmutations','inmutation','outmutation','users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.mutasiMasuk.index', compact('inmutations','inmutation','outmutation','user'));
     }
 
     /**
@@ -31,8 +31,8 @@ class InmutationController extends Controller
      */
     public function create()
     {
-        $users = User::first();
-        return view('pages.dashboard.admin.mutasiMasuk.create', compact('users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.mutasiMasuk.create', compact('user'));
     }
 
     /**
@@ -70,11 +70,11 @@ class InmutationController extends Controller
     public function edit($id)
     {
         $inmutation = Inmutation::findOrFail($id);
-        $users = User::first();
+        $user = User::first();
 
         return view('pages.dashboard.admin.mutasiMasuk.edit', [
             'inmutation' => $inmutation
-        ],compact('users'));
+        ],compact('user'));
     }
 
     /**

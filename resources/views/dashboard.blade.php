@@ -49,10 +49,10 @@
                     <div class="header__navbar">
                         <ul class="list-unstyled">
                             @if (Auth::user()->roles == 'ADMIN')
-                            <li class="dropdown">
-                                <a href="{{ route('dashboard.admindashboard.index') }}" class="">DASHBOARD</a>
-                            </li>  
-                        @endif
+                                <li class="dropdown">
+                                    <a href="{{ route('dashboard.admindashboard.index') }}" class="">DASHBOARD</a>
+                                </li>  
+                            @endif
                             
                         </ul>
                     </div>
@@ -60,28 +60,38 @@
                         <div class="account-wrap">
                             <div class="account-item account-item--style2 clearfix js-item-menu">
                                 <div class="image">
-                                    <img src="{{ url('/admin/images/icon/avatar-01.jpg') }}" alt="{{ $users->name }}" />
+                                    <img src="{{ url('/admin/images/icon/avatar-01.jpg') }}" alt="{{ $user->name }}" />
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">{{ $users->name }}</a>
+                                    <a class="js-acc-btn" href="#">{{ $user->name }}</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         <div class="image">
                                             <a href="#">
-                                                <img src="{{ url('/admin/images/icon/avatar-01.jpg') }}" alt="{{ $users->name }}" />
+                                                <img src="{{ url('/admin/images/icon/avatar-01.jpg') }}" alt="{{ $user->name }}" />
                                             </a>
                                         </div>
                                         <div class="content">
                                             <h5 class="name">
-                                                <a href="#">{{ $users->name }}</a>
+                                                <a href="#">{{ $user->name }}</a>
                                             </h5>
-                                            <span class="email">{{ $users->email }}</span>
+                                            <span class="email">{{ $user->email }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-dropdown__body">
+                                        <div class="account-dropdown__item">
+                                            <a href="{{ route('profile.show') }}">
+                                                <i class="zmdi zmdi-account"></i>Account</a>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-power"></i>Logout</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -111,29 +121,11 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Landing Page</a>
-                        </li>
-                        
+                        @if (Auth::user()->roles == 'ADMIN')
+                            <li class="dropdown">
+                                <a href="{{ route('dashboard.admindashboard.index') }}" class="">DASHBOARD</a>
+                            </li>  
+                        @endif
                     </ul>
                 </div>
             </nav>
@@ -143,28 +135,38 @@
                 <div class="account-wrap">
                     <div class="account-item account-item--style2 clearfix js-item-menu">
                         <div class="image">
-                            <img src="{{ url('/admin/images/icon/avatar-01.jpg') }}" alt="{{ $users->name }}" />
+                            <img src="{{ url('/admin/images/icon/avatar-01.jpg') }}" alt="{{ $user->name }}" />
                         </div>
                         <div class="content">
-                            <a class="js-acc-btn" href="#">{{ $users->name }}</a>
+                            <a class="js-acc-btn" href="#">{{ $user->name }}</a>
                         </div>
                         <div class="account-dropdown js-dropdown">
                             <div class="info clearfix">
                                 <div class="image">
                                     <a href="#">
-                                        <img src="{{ url('/admin/images/icon/avatar-01.jpg') }}" alt="{{ $users->name }}" />
+                                        <img src="{{ url('/admin/images/icon/avatar-01.jpg') }}" alt="{{ $user->name }}" />
                                     </a>
                                 </div>
                                 <div class="content">
                                     <h5 class="name">
-                                        <a href="#">{{ $users->name }}</a>
+                                        <a href="#">{{ $user->name }}</a>
                                     </h5>
-                                    <span class="email">{{ $users->email }}</span>
+                                    <span class="email">{{ $user->email }}</span>
+                                </div>
+                            </div>
+                            <div class="account-dropdown__body">
+                                <div class="account-dropdown__item">
+                                    <a href="{{ route('profile.show') }}">
+                                        <i class="zmdi zmdi-account"></i>Account</a>
                                 </div>
                             </div>
                             <div class="account-dropdown__footer">
-                                <a href="#">
-                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -212,7 +214,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="title-4">Welcome back 
-                                <span>{{ $users->name }}!</span>
+                                <span>{{ $user->name }}!</span>
                             </h1>
                             <hr class="line-seprate">
                         </div>

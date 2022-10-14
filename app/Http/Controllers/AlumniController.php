@@ -27,9 +27,9 @@ class AlumniController extends Controller
         $student = Student::count();
         $rooms = Room::count();
         $teachers = Teacher::count();
-        $users = User::first();
+        $user = User::first();
         
-        return view('pages.dashboard.admin.alumni.index', compact('alumnus', 'students', 'alumni', 'student', 'rooms' , 'teachers', 'users'));
+        return view('pages.dashboard.admin.alumni.index', compact('alumnus', 'students', 'alumni', 'student', 'rooms' , 'teachers', 'user'));
     }
 
     /**
@@ -39,9 +39,9 @@ class AlumniController extends Controller
      */
     public function create()
     {
-        $users = User::first();
+        $user = User::first();
 
-        return view('pages.dashboard.admin.alumni.create', compact('users'));
+        return view('pages.dashboard.admin.alumni.create', compact('user'));
     }
 
     /**
@@ -79,12 +79,12 @@ class AlumniController extends Controller
     public function edit(Alumni $alumni, $id)
     {
         $alumni = Alumni::findOrFail($id);
-        $users = User::first();
+        $user = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.alumni.edit', [
             'alumni' => $alumni
-        ],compact('users'));
+        ],compact('user'));
     }
 
     /**

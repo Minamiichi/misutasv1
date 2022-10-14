@@ -26,8 +26,8 @@ class PpdbController extends Controller
      */
     public function create()
     {
-        $users = User::first();
-        return view('create', compact('users'));
+        $user = User::first();
+        return view('create', compact('user'));
     }
 
     /**
@@ -58,7 +58,7 @@ class PpdbController extends Controller
         return view('pages.landingpage.ppdb.show', [
             'ppdb' => $ppdb,
             
-        ],compact('users'));
+        ],compact('user'));
     }
 
     /**

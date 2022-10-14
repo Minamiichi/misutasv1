@@ -24,9 +24,9 @@ class TeacherController extends Controller
         $student = Student::count();
         $room = Room::count();
         $teacher = Teacher::count();
-        $users = User::first();
+        $user = User::first();
         
-        return view('pages.dashboard.admin.teacher.index', compact('teachers','alumni', 'student', 'room' , 'teacher', 'users'));
+        return view('pages.dashboard.admin.teacher.index', compact('teachers','alumni', 'student', 'room' , 'teacher', 'user'));
     }
 
     /**
@@ -36,8 +36,8 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        $users = User::first();
-        return view('pages.dashboard.admin.teacher.create', compact('users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.teacher.create', compact('user'));
     }
 
     /**
@@ -75,12 +75,12 @@ class TeacherController extends Controller
     public function edit($id)
     {
         $teacher = Teacher::findOrFail($id);
-        $users = User::first();
+        $user = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.teacher.edit', [
             'teacher' => $teacher
-        ], compact('users'));
+        ], compact('user'));
     }
 
     /**

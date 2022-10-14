@@ -24,9 +24,9 @@ class RoomController extends Controller
         $student = Student::count();
         $room = Room::count();
         $teachers = Teacher::count();
-        $users = User::first();
+        $user = User::first();
         
-        return view('pages.dashboard.admin.room.index', compact('rooms','alumni', 'student', 'room' , 'teachers', 'users'));
+        return view('pages.dashboard.admin.room.index', compact('rooms','alumni', 'student', 'room' , 'teachers', 'user'));
     }
 
     /**
@@ -36,8 +36,8 @@ class RoomController extends Controller
      */
     public function create()
     {
-        $users = User::first();
-        return view('pages.dashboard.admin.room.create', compact('users'));
+        $user = User::first();
+        return view('pages.dashboard.admin.room.create', compact('user'));
     }
 
     /**
@@ -83,12 +83,12 @@ class RoomController extends Controller
     public function edit($id)
     {
         $room = Room::findOrFail($id);
-        $users = User::first();
+        $user = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.room.edit', [
             'room' => $room
-        ],compact('users'));
+        ],compact('user'));
     }
 
     /**
