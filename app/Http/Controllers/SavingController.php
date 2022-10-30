@@ -21,7 +21,6 @@ class SavingController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
         $users = auth()->user();
         $savings = Saving::where('user_id', '=', $users->id)->get();
         
@@ -33,7 +32,7 @@ class SavingController extends Controller
             'totalSavings' => $totalSavings
         ],
 
-         compact('students', 'savings'));
+         compact('savings'));
     }
 
     /**
@@ -43,9 +42,8 @@ class SavingController extends Controller
      */
     public function create()
     {
-        $students = Student::all();
-        $user = User::first();
-        return view('pages.dashboard.siswa.saving.create', compact('students', 'user'));
+        
+        return view('pages.dashboard.siswa.saving.create');
     }
 
     /**
@@ -83,14 +81,12 @@ class SavingController extends Controller
     public function edit($id)
     {
         $saving = Saving::findOrFail($id);
-        $students = Student::all();
-        $user = User::first();
+        
         // dd($students);
 
-        return view('pages.dashboard.siswa.saving.edit', [
+        return view('pages.dashboard.admin.saving.edit', [
             'saving' => $saving,
-            'students' => $students
-        ],compact('user'));
+        ]);
     }
 
     /**
@@ -105,7 +101,7 @@ class SavingController extends Controller
 
         $data = Saving::find($id)->update($request->all()); 
 
-        return redirect()->route('dashboard.saving.index');
+        return redirect()->route('dashboard.tabungan');
     }
 
     /**
@@ -136,5 +132,12 @@ class SavingController extends Controller
         ],
          compact('students', 'savings'));
     	return $pdf->download('laporan-tabungan.pdf');
+    }
+
+    public function tabungan(){
+        $students = Student::all();
+        $savings = Saving::all();
+
+        return view('pages.dashboard.admin.saving.index', compact('students', 'savings'));
     }
 }

@@ -26,8 +26,9 @@
                 </thead>
                 @foreach ($savings as $saving)
                     <tr>
-                        <td>{{ $saving->student->name }}</td>
-                        <td>Rp. {{ number_format($saving->sum, 2) }}</td>
+                        <td>{{ $saving->name }}</td>
+                        <td>Rp. {{ number_format($saving->paid, 2) }}</td>
+                        <td>{{ $saving->status }}</td>
                         <td>
                             <div class="table-data-feature">
                                 <a href="{{ route('dashboard.saving.edit', $saving->id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">

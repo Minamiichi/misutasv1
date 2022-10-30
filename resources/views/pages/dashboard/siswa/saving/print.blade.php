@@ -16,25 +16,28 @@
 		<h6>{{ Auth::user()->name }}</h5>
 	</center>
  
-	<table class="table table-data2">
-		<thead>
-			<tr>
-				<th>Hari</th>
-				<th>Jumlah</th>
-				<th></th>
-			</tr>
-		</thead>
-		@foreach ($savings as $saving)
-			<tr>
-				<td>{{  \Carbon\Carbon::parse($saving->created_at)->translatedFormat('l, d F Y'); }}</td>
-				<td>Rp. {{ number_format($saving->paid, 2) }}</td>
-			</tr>
-			<tr class="spacer"></tr>
-		@endforeach
-			<td>Total Tabungan </td>
-			<td></td>
-			<td>Rp. {{ number_format($totalSavings, 2) }}</td>
-	</table>
+	<div class="table-responsive table-responsive-data2">
+		<table class="table table-data2">
+			<thead>
+				<tr>
+					<th>Hari</th>
+					<th>Jumlah</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			@foreach ($savings as $saving)
+				<tr>
+					<td>{{  \Carbon\Carbon::parse($saving->created_at)->translatedFormat('l, d F Y'); }}</td>
+					<td>Rp. {{ number_format($saving->paid, 2) }}</td>
+					<td>{{ $saving->status }}</td>
+				</tr>
+				<tr class="spacer"></tr>
+			@endforeach
+				<td>Total Tabungan </td>
+				<td></td>
+				<td>Rp. {{ number_format($totalSavings, 2) }}</td>
+		</table>
+	</div>
  
 </body>
 </html>

@@ -33,17 +33,8 @@
                     <div class="col-sm-12 mb-3">
                         <label for=""
                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
-                        <select name="student_id" id="nisn" class="form-control form-control-user">
-                            <option
-                                value="{{ old(' $saving->student->id') ?? $saving->student->id }}">
-                                {{ $saving->student->nisn }}</option>
-                            <option value="">---------------</option>
-                            @foreach($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->nisn }}</option>
-                            @endforeach
-                        </select>
-                        <input type="hidden" value="secret" name="invisible" class="form-control form-control-user"
-                            placeholder="Tanggal Lahir" id="">
+                            <input type="text" value="{{ old('name') ?? $saving->name }}" name="name"
+                            class="form-control form-control-user" placeholder="Nama Siswa" id="">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -54,32 +45,24 @@
                             name="date" class="form-control form-control-user"
                             placeholder="Tanggal Pembayaran Pembayaran" id="">
                     </div>
-                    <div class="col-sm-6 mb-3">
-                        <label for=""
-                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
-                        <select name="day" id="day" class="form-control form-control-user">
-                            <option
-                                value="{{ old(' $saving->day') ?? $saving->day }}">
-                                {{ $saving->day }}</option>
-                            <option value="">---------------</option>
-
-                            <option value="Senin">Senin</option>
-                            <option value="Selasa">Selasa</option>
-                            <option value="Rabu">Rabu</option>
-                            <option value="Kamis">Kamis</option>
-                            <option value="Jum'at">Jum'at</option>
-                            <option value="Sabtu">Sabtu</option>
-                            <option value="Minggu">Minggu</option>
-
-                        </select>
-                    </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-12 mb-3">
+                    <div class="col-sm-6 mb-3">
                         <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Jumlah
                             Pembayaran</label>
-                        <input type="text" value="{{ old('sum') ?? $saving->sum }}"
-                            name="sum" class="form-control form-control-user" placeholder="Jumlah Pembayaran" id="">
+                        <input type="text" value="{{ old('paid') ?? $saving->paid }}"
+                            name="paid" class="form-control form-control-user" placeholder="Jumlah Pembayaran" id="">
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Status</label>
+                        <select name="status" id="status" class="form-control form-control-user">
+                            <option value="{{ old('$saving->status') ?? $saving->status}}">{{ $saving->status }}</option>
+                            <option value="">---------------</option>
+
+                            <option value="SUCCESS">SUCCESS</option>
+                            <option value="UNSUCCESS">UNSUCCESS</option>
+                            
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-12">

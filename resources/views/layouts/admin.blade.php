@@ -100,7 +100,7 @@
                                                     <a href="{{ route('dashboard.payment.index') }}">Pembayaran</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('dashboard.saving.index') }}">Tabungan</a>
+                                                    <a href="{{ route('dashboard.tabungan') }}">Tabungan</a>
                                                 </li>
                                             </ul>
                                         </li>

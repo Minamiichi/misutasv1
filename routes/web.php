@@ -67,6 +67,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
             'index', 'edit', 'update', 'destroy'
         ]);
 
+        Route::get('/tabungan', [Savingcontroller::class, 'tabungan'])->name('tabungan');
         Route::get('/ppdbAdmin', [PpdbController::class, 'infoPpdbAdmin'])->name('infoPpdbAdmin');
         Route::get('/ppdbAdminGallery', [PpdbGalleryController::class, 'infoPpdbAdminGallery'])->name('infoPpdbAdminGallery');
     });

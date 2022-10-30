@@ -46,8 +46,8 @@ class PpdbController extends Controller
         Ppdb::create($data);
         DB::table('users')
             ->update(['status' => 'ACTIVE']);
-        dd($request);
-        return redirect()->route('dashboard.index');
+        // dd($request);
+        return redirect()->route('dashboard.ppdb.index');
     }
 
     /**

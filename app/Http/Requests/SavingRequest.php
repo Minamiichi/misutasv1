@@ -25,10 +25,11 @@ class SavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'student_id' => 'required',
+            'name' => 'required',
+            'user_id' => 'required',
             'date' => 'required',
-            'day' => 'required',
-            'sum' => 'required',
+            'paid' => 'required',
+            'status' => 'required',
         ];
     }
 }

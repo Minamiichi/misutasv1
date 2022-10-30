@@ -15,11 +15,11 @@ class CreateSavingsTable extends Migration
     {
         Schema::create('savings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id');
+            $table->string('name');
             $table->foreignId('user_id');
             $table->date('date');
-            $table->string('day');
-            $table->string('paid');
+            $table->integer('paid');
+            $table->string('status')->default('UNSUCCESS');
             $table->timestamps();
         });
     }

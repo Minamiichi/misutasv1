@@ -19,16 +19,9 @@
                     </div>
                     <div class="col-sm-12 mb-3">
                         <label for=""
-                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
-                        <select name="student_id" id="nisn" class="form-control form-control-user">
-                            <option value="">Select NISN</option>
-                            <option value="">---------------</option>
-                            @foreach($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->nisn }}</option>
-                            @endforeach
-                        </select>
-                        <input type="hidden" value="secret" name="invisible" class="form-control form-control-user"
-                            placeholder="Tanggal Lahir" id="">
+                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nama</label>
+                        <input type="name" value="{{ old('name') }}" name="name"
+                            class="form-control form-control-user" placeholder="Nama" id="">
                     </div>
                 </div>
                 <div class="form-group row">

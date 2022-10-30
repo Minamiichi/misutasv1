@@ -13,16 +13,9 @@
                 <div class="form-group row">
                     <div class="col-sm-12 mb-3">
                         <label for=""
-                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
-                        <select name="student_id" id="nisn" class="form-control form-control-user">
-                            <option value="">Select NISN</option>
-                            <option value="">---------------</option>
-                            @foreach($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->nisn }}</option>
-                            @endforeach
-                        </select>
-                        <input type="hidden" value="secret" name="invisible" class="form-control form-control-user"
-                            placeholder="Tanggal Lahir" id="">
+                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nama</label>
+                        <input type="name" value="{{ old('name') }}" name="name"
+                            class="form-control form-control-user" placeholder="Nama" id="">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -32,29 +25,12 @@
                         <input type="date" value="{{ old('date') }}" name="date"
                             class="form-control form-control-user" placeholder="Tanggal Pembayaran Pembayaran" id="">
                     </div>
-                    <div class="col-sm-6 mb-3">
-                        <label for=""
-                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Hari</label>
-                        <select name="day" id="day" class="form-control form-control-user">
-                            <option value="">Hari Pembayaran</option>
-                            <option value="">---------------</option>
-
-                            <option value="Senin">Senin</option>
-                            <option value="Selasa">Selasa</option>
-                            <option value="Rabu">Rabu</option>
-                            <option value="Kamis">Kamis</option>
-                            <option value="Jum'at">Jum'at</option>
-                            <option value="Sabtu">Sabtu</option>
-                            <option value="Minggu">Minggu</option>
-
-                        </select>
-                    </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12 mb-3">
                         <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Jumlah
                             Pembayaran</label>
-                        <input type="text" value="{{ old('sum') }}" name="sum"
+                        <input type="text" value="{{ old('paid') }}" name="paid"
                             class="form-control form-control-user" placeholder="Jumlah Pembayaran" id="">
                     </div>
                     <div class="col-lg-12">
