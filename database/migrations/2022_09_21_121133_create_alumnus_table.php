@@ -19,6 +19,7 @@ class CreateAlumnusTable extends Migration
             $table->date('graduate');
             $table->string('nisn');
             $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

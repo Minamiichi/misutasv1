@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\BlogGallery;
 use Illuminate\Http\Request;
 use App\Http\Requests\BlogGalleryRequest;
+use Illuminate\Support\Facades\Storage;
 
 class BlogGalleryController extends Controller
 {
@@ -99,8 +100,12 @@ class BlogGalleryController extends Controller
      * @param  \App\Models\BlogGallery  $blogGallery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogGallery $blogGallery)
-    {
-        //
+
+    public function destroy(BlogGallery $blogGallery, $id, Blog $blog){
+
+        $blogGallery = BlogGallery::findOrFail($id);
+        $blogGallery->delete();
+        
+        return redirect()->back();
     }
 }

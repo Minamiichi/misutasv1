@@ -25,7 +25,7 @@
                                         </div>
                                         <div class="meta">
                                             <ul>
-                                                <li><i class="fas fa-calendar-alt"></i> 16 Nov, 2020</li>
+                                                <li><i class="fas fa-calendar-alt"></i> {{  \Carbon\Carbon::parse($blog->created_at)->translatedFormat('l, d F Y'); }}</li>
                                                 <li>By <a href="#">Park Lee</a></li>
                                             </ul>
                                         </div>
@@ -63,58 +63,27 @@
                 <!-- Start Sidebar -->
                 <div class="sidebar col-lg-4 col-md">
                     <aside>
-                        <div class="sidebar-item search">
-                            <div class="sidebar-info">
-                                <form>
-                                    <input type="text" name="text" class="form-control">
-                                    <button type="submit"><i class="fas fa-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
                         <div class="sidebar-item recent-post">
                             <div class="title">
                                 <h4>Recent Post</h4>
                             </div>
                             <ul>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="Thumb">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">Participate in staff meetingness manage dedicated</a>
-                                        <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> 9 Feb, 2020</span>
+                                @foreach ($recents as $recent)
+                                    <li>
+                                        <div class="thumb">
+                                            <a href="#">
+                                                <img src="{{ $recent->galleries()->exists() ? Storage::url($recent->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}" alt="Thumb">
+                                </a>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="Thumb">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">Future Plan & Strategy for Consutruction </a>
-                                        <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> 05 Jul, 2019</span>
+                                        <div class="info">
+                                            <a href="#">{{ $recent->title }}</a>
+                                            <div class="meta-title">
+                                                <span class="post-date"><i class="fas fa-clock"></i> {{  \Carbon\Carbon::parse($recent->created_at)->translatedFormat('l, d F Y'); }}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="Thumb">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">Melancholy particular devonshire alteration</a>
-                                        <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> 29 Aug, 2020</span>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endforeach
+                                
                             </ul>
                         </div>
                         <div class="sidebar-item category">

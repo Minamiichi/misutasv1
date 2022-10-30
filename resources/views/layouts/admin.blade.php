@@ -126,6 +126,11 @@
                                             </a>
                                         </li>
                                         <li>
+                                            <a class="js-arrow" href="{{ route('dashboard.infoPpdbAdmin') }}">
+                                                <i class="fas fa-group"></i>Ppdb
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a class="js-arrow" href="{{ route('dashboard.blog.index') }}">
                                                 <i class="fas fa-book"></i>Article
                                             </a>

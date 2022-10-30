@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
-class PPDBRequest extends FormRequest
+class PPDBGalleryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,7 @@ class PPDBRequest extends FormRequest
     public function rules()
     {
         return [
-            'nisn' => 'required',
-            'name' => 'required',
-            'birthdate' => 'required',
-            'gender' => 'required',
-            'religion' => 'required',
-            'files.*' => 'required|image',
-            
+            'files.*' => 'required|image'
         ];
     }
 }

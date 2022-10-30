@@ -44,9 +44,9 @@ class LandingPageController extends Controller
     public function blog(Request $request){
 
         $blogs = Blog::with(['galleries'])->latest()->get();
+        $recents = Blog::with(['galleries'])->inRandomOrder()->limit(4)->get();
 
-
-        return view('pages.landingpage.blog.index', compact('blogs'));
+        return view('pages.landingpage.blog.index', compact('blogs', 'recents'));
     }
 
     /**

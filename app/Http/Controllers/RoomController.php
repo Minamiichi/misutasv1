@@ -50,7 +50,7 @@ class RoomController extends Controller
     {
         $data = $request->all();
 
-        Room::create($data);
+        Room::create($data); 
 
         return redirect()->route('dashboard.room.index')->with('success', 'Data Added Successfully');
     }
@@ -66,11 +66,13 @@ class RoomController extends Controller
 
         $rooms = Room::where('id', $id)->first();
         $students = Student::where('room_id', $id)->get();
+        $user = User::first();
         // dd($students);
 
         return view('pages.dashboard.admin.room.show', [
             'room' => $rooms,
-            'students' => $students
+            'students' => $students,
+            'user' => $user
         ]);
     }
 

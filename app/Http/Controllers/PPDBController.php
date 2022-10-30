@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ppdb;
+use App\Models\PPDBGallery;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class PpdbController extends Controller
 {
@@ -15,8 +17,10 @@ class PpdbController extends Controller
      */
     public function index()
     {
-        $ppdb = Ppdb::all();
-        return view('pages.landingpage.ppdb.index', compact('ppdb'));
+        $users = auth()->user();
+        $ppdbs = Ppdb::where('user_id', '=', $users->id)->get();
+        // dd($ppdbs);
+        return view('home', compact('ppdbs', 'users'));
     }
 
     /**
@@ -26,8 +30,8 @@ class PpdbController extends Controller
      */
     public function create()
     {
-        $user = User::first();
-        return view('create', compact('user'));
+        $users = User::first();
+        return view('create', compact('users'));
     }
 
     /**
@@ -39,9 +43,10 @@ class PpdbController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         Ppdb::create($data);
-
+        DB::table('users')
+            ->update(['status' => 'ACTIVE']);
+        dd($request);
         return redirect()->route('dashboard.index');
     }
 
@@ -92,7 +97,20 @@ class PpdbController extends Controller
      */
     public function destroy(Ppdb $ppdb)
     {
-        //
+        $ppdb->delete();
+        DB::table('users')
+            ->update(['status' => 'INACTIVE']);
+
+        return redirect()->route('dashboard.index');
     }
+
+    public function infoPpdbAdmin()
+    {
+        $ppdbs = Ppdb::all();
+        $user = User::first();
+
+        return view('pages.dashboard.admin.ppdb.index', compact('ppdbs', 'user'));
+    }
+    
 }
 

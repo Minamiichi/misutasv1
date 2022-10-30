@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->string('no_pembayaran');
             $table->foreignId('student_id');
+            $table->foreignId('user_id');
             $table->date('date');
             $table->string('category');
             $table->integer('sum');

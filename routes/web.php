@@ -16,6 +16,7 @@ use App\Http\Controllers\BlogGalleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\OutmutationController;
 use App\Http\Controllers\AdmindashboardController;
+use App\Http\Controllers\PPDBGalleryController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -40,6 +41,12 @@ Route::get('/blog/details/{slug}' , [LandingPageController::class, 'details'])->
 Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::resource('ppdb', PpdbController::class);
+    Route::resource('ppdb.pgallery', PPDBGalleryController::class)->shallow()->only([
+        'index', 'create', 'store', 'destroy'
+    ]);
+    Route::resource('payment', PaymentController::class);
+    Route::resource('saving', SavingController::class);
+    Route::get('/cetak_pdf', [SavingController::class, 'cetak_pdf'])->name('cetak_pdf');
 
     Route::middleware(['admin'])->group(function(){
         Route::resource('admindashboard', AdmindashboardController::class);
@@ -49,8 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         Route::resource('teacher', TeacherController::class);
         Route::resource('inmutation', InmutationController::class);
         Route::resource('outmutation', OutmutationController::class);
-        Route::resource('payment', PaymentController::class);
-        Route::resource('saving', SavingController::class);
+       
 
         Route::resource('blog', BlogController::class); 
         Route::resource('blog.gallery', BlogGalleryController::class)->shallow()->only([
@@ -60,5 +66,8 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         Route::resource('user', UserController::class)->only([
             'index', 'edit', 'update', 'destroy'
         ]);
+
+        Route::get('/ppdbAdmin', [PpdbController::class, 'infoPpdbAdmin'])->name('infoPpdbAdmin');
+        Route::get('/ppdbAdminGallery', [PpdbGalleryController::class, 'infoPpdbAdminGallery'])->name('infoPpdbAdminGallery');
     });
 });

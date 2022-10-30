@@ -8,6 +8,7 @@ use App\Models\Alumni;
 use App\Models\Saving;
 use App\Models\Student;
 use App\Models\Teacher;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Http\Requests\SavingRequest;
 
@@ -21,14 +22,18 @@ class SavingController extends Controller
     public function index()
     {
         $students = Student::all();
-        $savings = Saving::all();
-        $alumni = Alumni::count();
-        $student = Student::count();
-        $room = Room::count();
-        $teachers = Teacher::count();
-        $user = User::first();
+        $users = auth()->user();
+        $savings = Saving::where('user_id', '=', $users->id)->get();
+        
+        $userId = auth()->user();
+        $totalSavings = Saving::where('user_id', '=', $userId->id)->sum('paid');
+        // dd($totalSavings);
 
-        return view('pages.dashboard.admin.saving.index', compact('students', 'savings','alumni', 'student', 'room' , 'teachers', 'user'));
+        return view('pages.dashboard.siswa.saving.index', [
+            'totalSavings' => $totalSavings
+        ],
+
+         compact('students', 'savings'));
     }
 
     /**
@@ -40,7 +45,7 @@ class SavingController extends Controller
     {
         $students = Student::all();
         $user = User::first();
-        return view('pages.dashboard.admin.saving.create', compact('students', 'user'));
+        return view('pages.dashboard.siswa.saving.create', compact('students', 'user'));
     }
 
     /**
@@ -82,7 +87,7 @@ class SavingController extends Controller
         $user = User::first();
         // dd($students);
 
-        return view('pages.dashboard.admin.saving.edit', [
+        return view('pages.dashboard.siswa.saving.edit', [
             'saving' => $saving,
             'students' => $students
         ],compact('user'));
@@ -114,5 +119,22 @@ class SavingController extends Controller
         $saving->delete();
         
         return redirect()->route('dashboard.saving.index');
+    }
+
+    public function cetak_pdf()
+    {
+    	$students = Student::all();
+        $users = auth()->user();
+        $savings = Saving::where('user_id', '=', $users->id)->get();
+        
+        $userId = auth()->user();
+        $totalSavings = Saving::where('user_id', '=', $userId->id)->sum('paid');
+        // dd($savings);
+ 
+    	$pdf = PDF::loadview('pages.dashboard.siswa.saving.print', [
+            'totalSavings' => $totalSavings
+        ],
+         compact('students', 'savings'));
+    	return $pdf->download('laporan-tabungan.pdf');
     }
 }

@@ -3,8 +3,8 @@
             <div class="container">
                 <div class="header4-wrap">
                     <div class="header__logo">
-                        <a href="#">
-                            <img src="{{ url('/admin/images/icon/logo-blue.png') }}" alt="CoolAdmin" />
+                        <a href="{{ route('index') }}">
+                            <img src="{{ url('/landingPage/assets/img/mi.png') }}" width="174px" height="50px" alt="Misutas" />
                         </a>
                     </div>
                     <div class="header__tool">

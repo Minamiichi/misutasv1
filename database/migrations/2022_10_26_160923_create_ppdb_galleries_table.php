@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSoftDeletesColumnsToAlumnus extends Migration
+class CreatePpdbGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class AddSoftDeletesColumnsToAlumnus extends Migration
      */
     public function up()
     {
-        Schema::table('alumnus', function (Blueprint $table) {
+        Schema::create('ppdb_galleries', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('ppdb_id');
+            $table->string('url');
+            $table->boolean('is_featured')->default(false);
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class AddSoftDeletesColumnsToAlumnus extends Migration
      */
     public function down()
     {
-        Schema::table('alumnus', function (Blueprint $table) {
-            $table->softDeletes();
-        });
+        Schema::dropIfExists('ppdb_galleries');
     }
 }

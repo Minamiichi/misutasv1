@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePpdbTable extends Migration
+class CreatePpdbsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreatePpdbTable extends Migration
      */
     public function up()
     {
-        Schema::create('ppdb', function (Blueprint $table) {
+        Schema::create('ppdbs', function (Blueprint $table) {
             $table->id();
             $table->string('nisn');
             $table->string('name');
             $table->date('birthdate');
             $table->string('gender');
             $table->string('religion');
-            $table->string('url')->nullable();
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreatePpdbTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ppdb');
+        Schema::dropIfExists('ppdbs');
     }
 }
