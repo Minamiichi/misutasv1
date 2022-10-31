@@ -10,6 +10,7 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Requests\PaymentRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PaymentController extends Controller
 {
@@ -20,15 +21,10 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        $payments = Payment::all();
-        $alumni = Alumni::count();
-        $student = Student::count();
-        $rooms = Room::count();
-        $teachers = Teacher::count();
-        $user = User::first();
-        
-        return view('pages.dashboard.admin.payment.index', compact('students', 'payments','alumni', 'student', 'rooms' , 'teachers', 'user'));
+        $users = auth()->user();
+        $payments = Payment::where('user_id', '=', $users->id)->get();
+
+        return view('pages.dashboard.siswa.payment.index', compact('payments'));
     }
 
     /**
@@ -38,9 +34,8 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        $students = Student::all();
-        $user = User::first();
-        return view('pages.dashboard.admin.payment.create', compact('students', 'user'));
+        
+        return view('pages.dashboard.siswa.payment.create');
     }
 
     /**
@@ -100,7 +95,7 @@ class PaymentController extends Controller
 
         $data = Payment::find($id)->update($request->all()); 
 
-        return redirect()->route('dashboard.payment.index');
+        return redirect()->route('dashboard.pembayaran');
     }
 
     /**
@@ -114,5 +109,20 @@ class PaymentController extends Controller
         $payment->delete();
         
         return redirect()->route('dashboard.payment.index');
+    }
+
+    public function cetak_pdfPembayaran()
+    {
+        $users = auth()->user();
+        $payments = Payment::where('user_id', '=', $users->id)->get();
+ 
+    	$pdf = PDF::loadview('pages.dashboard.siswa.payment.print', compact('payments'));
+    	return $pdf->download('laporan-pembayaran.pdf');
+    }
+
+    public function pembayaran(){
+        $payments = Payment::all();
+
+        return view('pages.dashboard.admin.payment.index', compact('payments'));
     }
 }

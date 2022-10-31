@@ -47,6 +47,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
     Route::resource('payment', PaymentController::class);
     Route::resource('saving', SavingController::class);
     Route::get('/cetak_pdf', [SavingController::class, 'cetak_pdf'])->name('cetak_pdf');
+    Route::get('/cetak_pdfPembayaran', [PaymentController::class, 'cetak_pdfPembayaran'])->name('cetak_pdfPembayaran');
 
     Route::middleware(['admin'])->group(function(){
         Route::resource('admindashboard', AdmindashboardController::class);
@@ -68,6 +69,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         ]);
 
         Route::get('/tabungan', [Savingcontroller::class, 'tabungan'])->name('tabungan');
+        Route::get('/pembayaran', [Paymentcontroller::class, 'pembayaran'])->name('pembayaran');
         Route::get('/ppdbAdmin', [PpdbController::class, 'infoPpdbAdmin'])->name('infoPpdbAdmin');
         Route::get('/ppdbAdminGallery', [PpdbGalleryController::class, 'infoPpdbAdminGallery'])->name('infoPpdbAdminGallery');
     });

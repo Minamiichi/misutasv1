@@ -26,7 +26,8 @@ class PaymentRequest extends FormRequest
     {
         return [
             'no_pembayaran' => 'required|max:255',
-            'student_id' => 'required',
+            'name' => 'required',
+            'user_id' => 'required',
             'date' => 'required',
             'category' => 'required',
             'sum' => 'required',

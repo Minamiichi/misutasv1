@@ -16,10 +16,11 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('no_pembayaran');
-            $table->foreignId('student_id');
+            $table->string('name');
             $table->foreignId('user_id');
             $table->date('date');
             $table->string('category');
+            $table->string('status')->default('UNSUCCESS');
             $table->integer('sum');
             $table->timestamps();
         });

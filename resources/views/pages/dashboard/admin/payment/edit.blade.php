@@ -41,17 +41,8 @@
                     <div class="col-sm-12 mb-3">
                         <label for=""
                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
-                        <select name="student_id" id="nisn" class="form-control form-control-user">
-                            <option
-                                value="{{ old(' $payment->student->id') ?? $payment->student->id }}">
-                                {{ $payment->student->nisn }}</option>
-                            <option value="">---------------</option>
-                            @foreach($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->nisn }}</option>
-                            @endforeach
-                        </select>
-                        <input type="hidden" value="secret" name="invisible" class="form-control form-control-user"
-                            placeholder="Tanggal Lahir" id="">
+                            <input type="text" value="{{ old('name') ?? $payment->name }}" name="name"
+                            class="form-control form-control-user" placeholder="Nama Siswa" id="">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -62,7 +53,7 @@
                             name="date" class="form-control form-control-user"
                             placeholder="Tanggal Pembayaran Pembayaran" id="">
                     </div>
-                    <div class="col-sm-12 mb-3">
+                    <div class="col-sm-6 mb-3">
                         <label for=""
                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">NISN</label>
                         <select name="category" id="nisn" class="form-control form-control-user">
@@ -74,6 +65,17 @@
                             <option value="KAS">KAS</option>
                             <option value="SPP">SPP</option>
 
+                        </select>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Status</label>
+                        <select name="status" id="status" class="form-control form-control-user">
+                            <option value="{{ old('$payment->status') ?? $payment->status}}">{{ $payment->status }}</option>
+                            <option value="">---------------</option>
+
+                            <option value="SUCCESS">SUCCESS</option>
+                            <option value="UNSUCCESS">UNSUCCESS</option>
+                            
                         </select>
                     </div>
                 </div>

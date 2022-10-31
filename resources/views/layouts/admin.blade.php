@@ -97,7 +97,7 @@
                                             </a>
                                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                                 <li>
-                                                    <a href="{{ route('dashboard.payment.index') }}">Pembayaran</a>
+                                                    <a href="{{ route('dashboard.pembayaran') }}">Pembayaran</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{ route('dashboard.tabungan') }}">Tabungan</a>

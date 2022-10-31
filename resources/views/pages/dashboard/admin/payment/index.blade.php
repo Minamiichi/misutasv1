@@ -19,17 +19,20 @@
             <table class="table table-data2">
                 <thead>
                     <tr>
-                        <th>No Pembayaran</th>
+                        <th>Hari Pembayaran</th>
                         <th>Nama Siswa</th>
                         <th>Jumlah</th>
-                        <th></th>
+                        <th>Kategori</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 @foreach ($payments as $payment)
                     <tr>
-                        <td>{{ $payment->no_pembayaran }}</td>
-                        <td>{{ $payment->student->name }}</td>
+                        <td>{{  \Carbon\Carbon::parse($payment->created_at)->translatedFormat('l, d F Y'); }}</td>
+                        <td>{{ $payment->name }}</td>
                         <td>Rp. {{ number_format($payment->sum, 2) }}</td>
+                        <td>{{ $payment->category }}</td>
+                        <td>{{ $payment->status }}</td>
                         <td>
                             <div class="table-data-feature">
                                 <a href="{{ route('dashboard.payment.edit', $payment->id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">

@@ -13,9 +13,9 @@ class CreatePpdbGalleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ppdb_galleries', function (Blueprint $table) {
+        Schema::create('p_p_d_b_galleries', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('ppdb_id');
+            $table->bigInteger('ppdbs_id');
             $table->string('url');
             $table->boolean('is_featured')->default(false);
             $table->softDeletes();
@@ -30,6 +30,6 @@ class CreatePpdbGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ppdb_galleries');
+        Schema::dropIfExists('p_p_d_b_galleries');
     }
 }

@@ -135,9 +135,8 @@ class SavingController extends Controller
     }
 
     public function tabungan(){
-        $students = Student::all();
         $savings = Saving::all();
 
-        return view('pages.dashboard.admin.saving.index', compact('students', 'savings'));
+        return view('pages.dashboard.admin.saving.index', compact('savings'));
     }
 }
