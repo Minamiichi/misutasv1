@@ -9,7 +9,7 @@
     <meta name="description" content="Digilab - SEO & Digital Marketing Agency Template">
 
     <!-- ========== Page Title ========== -->
-    <title>Digilab - SEO & Digital Marketing Agency Template</title>
+    <title>Madrasah Ibtidaiyah Sukasirna</title>
 
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="{{ url ( '/landingPage/assets/img/favicon.png' ) }}" type="image/x-icon">

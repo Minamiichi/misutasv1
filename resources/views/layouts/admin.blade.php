@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard 4</title>
+    <title>Misutas-Admin</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{ url('/admin/css/font-face.css') }}" rel="stylesheet" media="all">
