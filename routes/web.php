@@ -70,6 +70,8 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
 
         Route::get('/tabungan', [Savingcontroller::class, 'tabungan'])->name('tabungan');
         Route::get('/pembayaran', [Paymentcontroller::class, 'pembayaran'])->name('pembayaran');
+        Route::get('/cetak_pdfAdmin', [SavingController::class, 'cetak_pdfAdmin'])->name('cetak_pdfAdmin');
+        Route::get('/cetak_pdfPembayaranAdmin', [PaymentController::class, 'cetak_pdfPembayaranAdmin'])->name('cetak_pdfPembayaranAdmin');
         Route::get('/ppdbAdmin', [PpdbController::class, 'infoPpdbAdmin'])->name('infoPpdbAdmin');
         Route::get('/ppdbAdminGallery', [PpdbGalleryController::class, 'infoPpdbAdminGallery'])->name('infoPpdbAdminGallery');
     });

@@ -125,4 +125,11 @@ class PaymentController extends Controller
 
         return view('pages.dashboard.admin.payment.index', compact('payments'));
     }
+    public function cetak_pdfPembayaranAdmin()
+    {
+        $payments = Payment::all();
+ 
+    	$pdf = PDF::loadview('pages.dashboard.admin.payment.print', compact('payments'));
+    	return $pdf->download('laporan-pembayaran-admin.pdf');
+    }
 }
