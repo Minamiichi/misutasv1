@@ -30,7 +30,9 @@ class PaymentRequest extends FormRequest
             'user_id' => 'required',
             'date' => 'required',
             'category' => 'required',
+            'status' => 'required',
             'sum' => 'required',
+
         ];
     }
 }

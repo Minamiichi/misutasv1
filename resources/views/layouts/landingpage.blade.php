@@ -9,7 +9,11 @@
     <meta name="description" content="Digilab - SEO & Digital Marketing Agency Template">
 
     <!-- ========== Page Title ========== -->
+<<<<<<< HEAD
     <title>MISUTAS</title>
+=======
+    <title>Madrasah Ibtidaiyah Sukasirna</title>
+>>>>>>> 273037115cc506db60b351d14504a9642039b2c2
 
     <!-- ========== Favicon Icon ========== -->
 

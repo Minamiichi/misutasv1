@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 wow fadeInLeft contact-form">
-                <h2>Need help? <strong>Let's ask your questions</strong></h2>
+                <h2><strong>Lengkapi Data Dibawah Ini !</strong></h2>
                 <form action="{{ route('dashboard.ppdb.store') }}" class="w-full" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">

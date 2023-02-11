@@ -11,6 +11,7 @@ use App\Models\Teacher;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Http\Requests\SavingRequest;
+use Carbon\Carbon;
 
 class SavingController extends Controller
 {
@@ -138,5 +139,18 @@ class SavingController extends Controller
         $savings = Saving::all();
 
         return view('pages.dashboard.admin.saving.index', compact('savings'));
+    }
+    public function cetak_pdfAdmin()
+    {
+        $savings = Saving::all();
+
+        $totalSavings = Saving::where('created_at', '=', Carbon::now())->sum('paid');
+        // dd($savings);
+ 
+    	$pdf = PDF::loadview('pages.dashboard.admin.saving.print', [
+            'totalSavings' => $totalSavings
+        ],
+         compact('savings'));
+    	return $pdf->download('laporan-tabungan.pdf');
     }
 }

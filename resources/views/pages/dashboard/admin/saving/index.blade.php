@@ -12,6 +12,7 @@
             <div class="table-data__tool-right">
                 <a href="{{ route('dashboard.saving.create') }}"><button class="au-btn au-btn-icon au-btn--green au-btn--small">
                     <i class="zmdi zmdi-plus"></i>add item</button></a>
+                    <a href="{{ route('dashboard.cetak_pdfAdmin') }}" class="btn btn-primary" target="_blank">CETAK PDF</a>
                 
             </div>
         </div>

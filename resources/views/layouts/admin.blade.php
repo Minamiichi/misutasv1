@@ -10,7 +10,11 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
+<<<<<<< HEAD
     <title>MISUTAS</title>
+=======
+    <title>Misutas-Admin</title>
+>>>>>>> 273037115cc506db60b351d14504a9642039b2c2
 
     <!-- Fontfaces CSS-->
     <link href="{{ url('/admin/css/font-face.css') }}" rel="stylesheet" media="all">
