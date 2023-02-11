@@ -68,9 +68,9 @@
             <div class="filters m-b-55">
                 <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
                     <select class="js-select2" name="property">
-                        <option selected="selected">Products Sales</option>
-                        <option value="">Products</option>
-                        <option value="">Services</option>
+                        <option selected="selected">Data Chart</option>
+                        <option value="">Pria</option>
+                        <option value="">Wanita</option>
                     </select>
                     <div class="dropDownSelect2"></div>
                 </div>
@@ -95,11 +95,11 @@
             <h3 class="title-3 m-b-25">chart by %</h3>
             <div class="chart-note m-b-5">
                 <span class="dot dot--blue"></span>
-                <span>products</span>
+                <span>Satisfied</span>
             </div>
             <div class="chart-note">
                 <span class="dot dot--red"></span>
-                <span>services</span>
+                <span>Unsatisfied</span>
             </div>
             <div class="chart-wrap m-t-60">
                 <canvas id="percent-chart2"></canvas>

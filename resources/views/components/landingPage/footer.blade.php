@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="info">
                                         <h5>Email:</h5>
-                                        <span>support@validtemplates.com</span>
+                                        <span>mis.sukasirna70@gmail.com</span>
                                     </div>
                                 </li>
                                 <li>
@@ -29,7 +29,7 @@
                                     </div>
                                     <div class="info">
                                         <h5>Phone:</h5>
-                                        <span>+44-20-7328-4499</span>
+                                        <span>+62-858-6487-2169</span>
                                     </div>
                                 </li>
                             </ul>
@@ -77,13 +77,10 @@
                     <div class="f-item recent-post">
                         <h4 class="widget-title">Latest News</h4>
                         <div class="item">
-                            <a href="#">Delighted prevailed supported too not remainder perpetual who furnished.</a>
-                            <span><i class="fas fa-calendar-alt"></i> 22 Aug, 2020 -  <a href="#">Admin</a></span>
+                            <a href="#">Ditemukan Seorang.</a>
+                            <span><i class="fas fa-calendar-alt"></i> 22 Dec, 2022 -  <a href="#">Admin</a></span>
                         </div>
-                        <div class="item">
-                            <a href="#">Speaking trifling an to unpacked moderate debating learnin management. </a>
-                            <span><i class="fas fa-calendar-alt"></i> 15 Nov, 2020 -  <a href="#">User</a></span>
-                        </div>
+                        
                     </div>
                 </div>
 

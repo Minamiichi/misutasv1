@@ -9,10 +9,9 @@
     <meta name="description" content="Digilab - SEO & Digital Marketing Agency Template">
 
     <!-- ========== Page Title ========== -->
-    <title>Digilab - SEO & Digital Marketing Agency Template</title>
+    <title>MISUTAS</title>
 
     <!-- ========== Favicon Icon ========== -->
-    <link rel="shortcut icon" href="{{ url ( '/landingPage/assets/img/favicon.png' ) }}" type="image/x-icon">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="{{ url ( '/landingPage/assets/css/bootstrap.min.css' ) }}" rel="stylesheet" />

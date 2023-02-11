@@ -13,7 +13,7 @@
             <div class="row align-center">
 
                 <div class="col-lg-6 order-last thumb width-130 wow fadeInRight" data-wow-duration="1s">
-                    <img src="/landingPage/assets/img/illustration/wp5593534.jpg" width="500px" height="400px" alt="Thumb">
+                    <img src="/landingPage/assets/img/illustration/halaman.jpeg" width="700px" height="400px" alt="Halaman Depan Sekolah">
                 </div>
 
                 <div class="col-lg-6 info">

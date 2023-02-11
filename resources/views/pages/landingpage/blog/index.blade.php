@@ -20,13 +20,13 @@
                                     </div>
                                     <div class="info">
                                         <div class="tags">
-                                            <a href="#">SEO</a>
-                                            <a href="#">Analysis</a>
+                                            <a href="#">Berita terkini</a>
+                                            <a href="#">di Tasikmalaya</a>
                                         </div>
                                         <div class="meta">
                                             <ul>
                                                 <li><i class="fas fa-calendar-alt"></i> {{  \Carbon\Carbon::parse($blog->created_at)->translatedFormat('l, d F Y'); }}</li>
-                                                <li>By <a href="#">Park Lee</a></li>
+                                                <li>By <a href="#">Admin</a></li>
                                             </ul>
                                         </div>
                                         <h4>
@@ -93,19 +93,19 @@
                             <div class="sidebar-info">
                                 <ul>
                                     <li>
-                                        <a href="#">national <span>69</span></a>
+                                        <a href="#">Nasional <span>69</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">national <span>25</span></a>
+                                        <a href="#">Akademis <span>25</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">sports <span>16</span></a>
+                                        <a href="#">Olahraga <span>16</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">megazine <span>37</span></a>
+                                        <a href="#">Kegiatan <span>37</span></a>
                                     </li>
                                     <li>
-                                        <a href="#">health <span>9</span></a>
+                                        <a href="#">Sekolah <span>9</span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -118,32 +118,32 @@
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/10.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/11.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/12.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/13.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/14.png" alt="thumb">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="/landingPage/assets/img/600x600.png" alt="thumb">
+                                            <img src="/landingPage/assets/img/halaman.jpeg" alt="thumb">
                                         </a>
                                     </li>
                                 </ul>

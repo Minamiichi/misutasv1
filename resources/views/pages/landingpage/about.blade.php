@@ -8,8 +8,8 @@
         <div class="about-items">
             <div class="row">
                 <div class="col-lg-6 thumb wow fadeInUp">
-                    <img src="/landingPage/assets/img/illustration/01.jpeg" alt="Thumb">
-                    <img src="/landingPage/assets/img/illustration/01.jpeg" alt="Thumb">
+                    <img src="/landingPage/assets/img/illustration/01.jpeg" alt="Thumb" style="margin-bottom: 10px">
+                    <img src="/landingPage/assets/img/illustration/ruangan.jpeg" alt="Thumb">
                 </div>
                 <div class="col-lg-6 info wow fadeInLeft">
                     <h5>Tentang Madrasah</h5>
